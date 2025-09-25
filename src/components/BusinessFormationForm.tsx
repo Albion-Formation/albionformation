@@ -68,8 +68,18 @@ const BusinessFormationForm = ({ isOpen, onClose }: BusinessFormationFormProps) 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
-      // Here you would typically send the data to your backend
-      console.log("Form submitted:", data);
+      // Send form data to webhook
+      const response = await fetch("https://n8n.simpleexel.io/webhook-test/72b01675-be27-4d4d-91b5-b182e10d79d5", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
       
       toast({
         title: "Application Submitted Successfully!",

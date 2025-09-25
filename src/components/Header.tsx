@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import BusinessFormationForm from "./BusinessFormationForm";
 
 const Header = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
   return (
     <header className="w-full bg-background border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,11 +27,20 @@ const Header = () => {
             </a>
           </nav>
           
-          <Button variant="default" className="bg-primary text-primary-foreground hover:bg-primary/90">
+          <Button 
+            variant="default" 
+            className="bg-primary text-primary-foreground hover:bg-primary/90"
+            onClick={() => setIsFormOpen(true)}
+          >
             Get Started
           </Button>
         </div>
       </div>
+      
+      <BusinessFormationForm 
+        isOpen={isFormOpen} 
+        onClose={() => setIsFormOpen(false)} 
+      />
     </header>
   );
 };

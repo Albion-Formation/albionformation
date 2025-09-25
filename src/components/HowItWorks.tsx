@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Phone, FileText, UserCheck, Award } from "lucide-react";
+import BusinessFormationForm from "./BusinessFormationForm";
 
 const HowItWorks = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
   const steps = [
     {
       number: "1",
@@ -67,12 +70,21 @@ const HowItWorks = () => {
             <p className="text-muted-foreground mb-6">
               The process typically takes just 24 hours from initial consultation to completion.
             </p>
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button 
+              size="lg" 
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              onClick={() => setIsFormOpen(true)}
+            >
               Start Your Application
             </Button>
           </div>
         </div>
       </div>
+      
+      <BusinessFormationForm 
+        isOpen={isFormOpen} 
+        onClose={() => setIsFormOpen(false)} 
+      />
     </section>
   );
 };

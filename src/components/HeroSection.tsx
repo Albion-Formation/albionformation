@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Check } from "lucide-react";
+import BusinessFormationForm from "./BusinessFormationForm";
 
 const HeroSection = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
   return (
     <section className="bg-background py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,10 +24,18 @@ const HeroSection = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button 
+                size="lg" 
+                className="bg-primary text-primary-foreground hover:bg-primary/90"
+                onClick={() => setIsFormOpen(true)}
+              >
                 Get Started Now
               </Button>
-              <Button variant="outline" size="lg">
+              <Button 
+                variant="outline" 
+                size="lg"
+                onClick={() => setIsFormOpen(true)}
+              >
                 Learn More
               </Button>
             </div>
@@ -87,6 +98,11 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+      
+      <BusinessFormationForm 
+        isOpen={isFormOpen} 
+        onClose={() => setIsFormOpen(false)} 
+      />
     </section>
   );
 };

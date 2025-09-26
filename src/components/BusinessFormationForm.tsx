@@ -66,17 +66,24 @@ const BusinessFormationForm = ({ isOpen, onClose }: BusinessFormationFormProps) 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
-      // Send form data to webhook  
+      // Prepare and send form data to production webhook (urlencoded to avoid CORS preflight)
+      const payload = {
+        ...data,
+        dateOfBirth: `${data.dobYear}-${data.dobMonth}-${data.dobDate}`,
+      } as const;
+      const params = new URLSearchParams();
+      Object.entries(payload).forEach(([k, v]) => params.append(k, String(v)));
       const response = await fetch("https://n8n.simpleexel.io/webhook/72b01675-be27-4d4d-91b5-b182e10d79d5", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         },
-        body: JSON.stringify(data),
+        body: params.toString(),
       });
 
       if (!response.ok) {
-        throw new Error("Failed to submit form");
+        const errorText = await response.text().catch(() => "");
+        throw new Error(`Failed to submit form: ${response.status} ${errorText}`);
       }
       
       toast({

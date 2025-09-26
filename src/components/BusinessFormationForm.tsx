@@ -2,15 +2,10 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { format } from "date-fns";
-import { CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import {
   Form,
@@ -33,9 +28,9 @@ const formSchema = z.object({
   lastName: z.string().trim().min(1, "Last name is required").max(50, "Last name must be less than 50 characters"),
   phoneNumber: z.string().trim().min(10, "Phone number must be at least 10 digits").max(20, "Phone number must be less than 20 characters"),
   email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
-  dateOfBirth: z.date({
-    required_error: "Date of birth is required",
-  }),
+  dobMonth: z.string().min(1, "Month is required"),
+  dobDate: z.string().min(1, "Date is required"),
+  dobYear: z.string().min(1, "Year is required"),
   privacyConsent: z.boolean().refine((val) => val === true, {
     message: "You must agree to the privacy policy and terms of service",
   }),
@@ -60,6 +55,9 @@ const BusinessFormationForm = ({ isOpen, onClose }: BusinessFormationFormProps) 
       lastName: "",
       phoneNumber: "",
       email: "",
+      dobMonth: "",
+      dobDate: "",
+      dobYear: "",
       privacyConsent: false,
       marketingConsent: false,
     },
@@ -68,8 +66,8 @@ const BusinessFormationForm = ({ isOpen, onClose }: BusinessFormationFormProps) 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     try {
-      // Send form data to webhook
-      const response = await fetch("https://n8n.simpleexel.io/webhook-test/72b01675-be27-4d4d-91b5-b182e10d79d5", {
+      // Send form data to webhook  
+      const response = await fetch("https://n8n.simpleexel.io/webhook/72b01675-be27-4d4d-91b5-b182e10d79d5", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -174,48 +172,96 @@ const BusinessFormationForm = ({ isOpen, onClose }: BusinessFormationFormProps) 
               )}
             />
 
-            <FormField
-              control={form.control}
-              name="dateOfBirth"
-              render={({ field }) => (
-                <FormItem className="flex flex-col">
-                  <FormLabel>What's your date of birth?</FormLabel>
-                  <Popover>
-                    <PopoverTrigger asChild>
-                      <FormControl>
-                        <Button
-                          variant="outline"
-                          className={cn(
-                            "w-full pl-3 text-left font-normal",
-                            !field.value && "text-muted-foreground"
-                          )}
-                        >
-                          {field.value ? (
-                            format(field.value, "MM/dd/yyyy")
-                          ) : (
-                            <span>MM/DD/YYYY (For example 07/14/1971)</span>
-                          )}
-                          <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                        </Button>
-                      </FormControl>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar
-                        mode="single"
-                        selected={field.value}
-                        onSelect={field.onChange}
-                        disabled={(date) =>
-                          date > new Date() || date < new Date("1900-01-01")
-                        }
-                        initialFocus
-                        className={cn("p-3 pointer-events-auto")}
-                      />
-                    </PopoverContent>
-                  </Popover>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            <div className="space-y-4">
+              <FormLabel className="text-base font-medium">What's your date of birth?</FormLabel>
+              <div className="grid grid-cols-3 gap-4">
+                <FormField
+                  control={form.control}
+                  name="dobMonth"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Month</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="MM" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="01">01</SelectItem>
+                          <SelectItem value="02">02</SelectItem>
+                          <SelectItem value="03">03</SelectItem>
+                          <SelectItem value="04">04</SelectItem>
+                          <SelectItem value="05">05</SelectItem>
+                          <SelectItem value="06">06</SelectItem>
+                          <SelectItem value="07">07</SelectItem>
+                          <SelectItem value="08">08</SelectItem>
+                          <SelectItem value="09">09</SelectItem>
+                          <SelectItem value="10">10</SelectItem>
+                          <SelectItem value="11">11</SelectItem>
+                          <SelectItem value="12">12</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="dobDate"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Date</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="DD" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {Array.from({ length: 31 }, (_, i) => (
+                            <SelectItem key={i + 1} value={String(i + 1).padStart(2, '0')}>
+                              {String(i + 1).padStart(2, '0')}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="dobYear"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Year</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="YYYY" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {Array.from({ length: 100 }, (_, i) => {
+                            const year = new Date().getFullYear() - i;
+                            return (
+                              <SelectItem key={year} value={String(year)}>
+                                {year}
+                              </SelectItem>
+                            );
+                          })}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+              <p className="text-sm text-muted-foreground">For example 07 14 1971</p>
+            </div>
 
             <div className="space-y-6 border-t pt-6">
               <h3 className="text-lg font-semibold text-foreground">Privacy & Consent</h3>

@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Phone, FileText, UserCheck, Award } from "lucide-react";
-import BusinessFormationForm from "./BusinessFormationForm";
 
 const HowItWorks = () => {
-  const [isFormOpen, setIsFormOpen] = useState(false);
+  const navigate = useNavigate();
   const steps = [
     {
       number: "1",
@@ -73,18 +72,13 @@ const HowItWorks = () => {
             <Button 
               size="lg" 
               className="bg-primary text-primary-foreground hover:bg-primary/90"
-              onClick={() => setIsFormOpen(true)}
+              onClick={() => navigate("/apply")}
             >
               Start Your Application
             </Button>
           </div>
         </div>
       </div>
-      
-      <BusinessFormationForm 
-        isOpen={isFormOpen} 
-        onClose={() => setIsFormOpen(false)} 
-      />
     </section>
   );
 };

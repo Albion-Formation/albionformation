@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Clock, Users, TrendingUp } from "lucide-react";
-import BusinessFormationForm from "./BusinessFormationForm";
 
 const CTASection = () => {
-  const [isFormOpen, setIsFormOpen] = useState(false);
+  const navigate = useNavigate();
   return (
     <section className="py-16 lg:py-24 bg-primary text-primary-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -31,7 +30,7 @@ const CTASection = () => {
             size="lg" 
             variant="secondary"
             className="bg-background text-foreground hover:bg-background/90 mb-4"
-            onClick={() => setIsFormOpen(true)}
+            onClick={() => navigate("/apply")}
           >
             Book a Call Now
           </Button>
@@ -56,11 +55,6 @@ const CTASection = () => {
           </div>
         </div>
       </div>
-      
-      <BusinessFormationForm 
-        isOpen={isFormOpen} 
-        onClose={() => setIsFormOpen(false)} 
-      />
     </section>
   );
 };

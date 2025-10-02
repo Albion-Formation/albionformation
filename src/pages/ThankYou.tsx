@@ -9,7 +9,7 @@ const ThankYou = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate("/");
-    }, 8000); // 8 seconds
+    }, 5000); // 5 seconds
 
     return () => clearTimeout(timer);
   }, [navigate]);

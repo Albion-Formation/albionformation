@@ -258,7 +258,6 @@ const Apply = () => {
                     )}
                   />
                 </div>
-                <p className="text-sm text-muted-foreground">For example 07 14 1971</p>
               </div>
 
               <div className="space-y-6 border-t pt-6">

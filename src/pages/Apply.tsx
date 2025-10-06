@@ -276,7 +276,15 @@ const Apply = () => {
                       </FormControl>
                       <div className="space-y-1 leading-none">
                         <FormLabel className="text-sm">
-                          I agree to the processing of my personal data as outlined in the Privacy Policy and Terms of Service. *
+                          I agree to the processing of my personal data as outlined in the{" "}
+                          <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                            Privacy Policy
+                          </a>
+                          {" "}and{" "}
+                          <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                            Terms of Service
+                          </a>
+                          . *
                         </FormLabel>
                         <FormMessage />
                       </div>

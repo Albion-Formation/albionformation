@@ -12,17 +12,20 @@ const Header = () => {
           </div>
           
           <nav className="hidden md:flex space-x-8">
-            <a href="#" className="text-foreground hover:text-primary font-medium">
+            <a href="/" className="text-foreground hover:text-primary font-medium">
               Home
             </a>
-            <a href="#" className="text-foreground hover:text-primary font-medium">
+            <a href="#services" className="text-foreground hover:text-primary font-medium">
               Services
             </a>
-            <a href="#" className="text-foreground hover:text-primary font-medium">
+            <a href="#how-it-works" className="text-foreground hover:text-primary font-medium">
               How It Works
             </a>
-            <a href="#" className="text-foreground hover:text-primary font-medium">
-              Testimonials
+            <a href="/privacy" className="text-foreground hover:text-primary font-medium">
+              Privacy Policy
+            </a>
+            <a href="/terms" className="text-foreground hover:text-primary font-medium">
+              Terms & Conditions
             </a>
           </nav>
           

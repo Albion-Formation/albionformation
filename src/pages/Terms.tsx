@@ -110,7 +110,7 @@ const Terms = () => {
               If you have any questions about these Terms, please contact us at:
             </p>
             <p className="text-muted-foreground">
-              Email: legal@albion.com<br />
+              Email: support@albionformation.com<br />
               Address: ALBION Business Services, London, United Kingdom
             </p>
           </section>

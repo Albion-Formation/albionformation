@@ -62,7 +62,7 @@ const Apply = () => {
       } as const;
       const params = new URLSearchParams();
       Object.entries(payload).forEach(([k, v]) => params.append(k, String(v)));
-      const response = await fetch("https://n8n.simpleexel.io/webhook/72b01675-be27-4d4d-91b5-b182e10d79d5", {
+      const response = await fetch("https://n8n.simpleexel.io/webhook-test/72b01675-be27-4d4d-91b5-b182e10d79d5", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",

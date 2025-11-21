@@ -23,6 +23,7 @@ const formSchema = z.object({
   lastName: z.string().trim().min(1, "Last name is required").max(50, "Last name must be less than 50 characters"),
   phoneNumber: z.string().trim().min(10, "Phone number must be at least 10 digits").max(20, "Phone number must be less than 20 characters"),
   email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  confirmEmail: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
   dobMonth: z.string().min(1, "Month is required"),
   dobDate: z.string().min(1, "Date is required"),
   dobYear: z.string().min(1, "Year is required"),
@@ -30,6 +31,9 @@ const formSchema = z.object({
     message: "You must agree to the privacy policy and terms of service",
   }),
   marketingConsent: z.boolean().default(false),
+}).refine((data) => data.email === data.confirmEmail, {
+  message: "Email addresses do not match",
+  path: ["confirmEmail"],
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -46,6 +50,7 @@ const NomineeBuyers = () => {
       lastName: "",
       phoneNumber: "",
       email: "",
+      confirmEmail: "",
       dobMonth: "",
       dobDate: "",
       dobYear: "",
@@ -64,7 +69,7 @@ const NomineeBuyers = () => {
       } as const;
       const params = new URLSearchParams();
       Object.entries(payload).forEach(([k, v]) => params.append(k, String(v)));
-      const response = await fetch("https://n8n.simpleexel.io/webhook/72b01675-be27-4d4d-91b5-b182e10d79d5", {
+      const response = await fetch("https://n8n.simpleexel.io/webhook/85afd7b0-935b-4245-8d79-4ee4c397f723", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
@@ -158,6 +163,20 @@ const NomineeBuyers = () => {
                     <FormLabel>Email Address</FormLabel>
                     <FormControl>
                       <Input placeholder="your.email@example.com" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="confirmEmail"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Confirm Email Address</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Confirm your email address" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

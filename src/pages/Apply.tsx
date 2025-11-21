@@ -23,6 +23,7 @@ const formSchema = z.object({
   lastName: z.string().trim().min(1, "Last name is required").max(50, "Last name must be less than 50 characters"),
   phoneNumber: z.string().trim().min(10, "Phone number must be at least 10 digits").max(20, "Phone number must be less than 20 characters"),
   email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  confirmEmail: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
   dobMonth: z.string().min(1, "Month is required"),
   dobDate: z.string().min(1, "Date is required"),
   dobYear: z.string().min(1, "Year is required"),
@@ -30,6 +31,9 @@ const formSchema = z.object({
     message: "You must agree to the privacy policy and terms of service",
   }),
   marketingConsent: z.boolean().default(false),
+}).refine((data) => data.email === data.confirmEmail, {
+  message: "Email addresses do not match",
+  path: ["confirmEmail"],
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -46,6 +50,7 @@ const Apply = () => {
       lastName: "",
       phoneNumber: "",
       email: "",
+      confirmEmail: "",
       dobMonth: "",
       dobDate: "",
       dobYear: "",
@@ -157,6 +162,20 @@ const Apply = () => {
                     <FormLabel>Email Address</FormLabel>
                     <FormControl>
                       <Input placeholder="your.email@example.com" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="confirmEmail"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Confirm Email Address</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Confirm your email address" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

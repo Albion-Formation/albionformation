@@ -33,7 +33,7 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-const Apply = () => {
+const NomineeBuyers = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -59,6 +59,7 @@ const Apply = () => {
       const payload = {
         ...data,
         dateOfBirth: `${data.dobYear}-${data.dobMonth}-${data.dobDate}`,
+        formType: "nominee-buyers",
       } as const;
       const params = new URLSearchParams();
       Object.entries(payload).forEach(([k, v]) => params.append(k, String(v)));
@@ -102,7 +103,7 @@ const Apply = () => {
       <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-foreground mb-4">
-            Nominee Director Application
+            Nominee Buyers Application
           </h1>
           <p className="text-lg text-muted-foreground">
             Please fill out your information to get started
@@ -258,6 +259,7 @@ const Apply = () => {
                     )}
                   />
                 </div>
+                <p className="text-sm text-muted-foreground">For example 07 14 1971</p>
               </div>
 
               <div className="space-y-6 border-t pt-6">
@@ -333,4 +335,4 @@ const Apply = () => {
   );
 };
 
-export default Apply;
+export default NomineeBuyers;

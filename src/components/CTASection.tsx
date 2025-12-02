@@ -26,14 +26,24 @@ const CTASection = () => {
             </div>
           </div>
           
-          <Button 
-            size="lg" 
-            variant="secondary"
-            className="bg-background text-foreground hover:bg-background/90 mb-4"
-            onClick={() => navigate("/apply")}
-          >
-            Book a Call Now
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
+            <Button 
+              size="lg" 
+              variant="secondary"
+              className="bg-background text-foreground hover:bg-background/90"
+              onClick={() => navigate("/apply")}
+            >
+              Nominee Director Service
+            </Button>
+            <Button 
+              size="lg" 
+              variant="secondary"
+              className="bg-background text-foreground hover:bg-background/90"
+              onClick={() => navigate("/nominee-buyers")}
+            >
+              Nominee Buyer Service
+            </Button>
+          </div>
           
           <p className="text-sm text-primary-foreground/70">
             Free consultation • No obligation • Expert guidance

@@ -28,14 +28,14 @@ const HeroSection = () => {
                 className="bg-primary text-primary-foreground hover:bg-primary/90"
                 onClick={() => navigate("/apply")}
               >
-                Get Started Now
+                Nominee Director Service
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
-                onClick={() => navigate("/apply")}
+                onClick={() => navigate("/nominee-buyers")}
               >
-                Learn More
+                Nominee Buyer Service
               </Button>
             </div>
             

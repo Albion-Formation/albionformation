@@ -69,13 +69,22 @@ const HowItWorks = () => {
             <p className="text-muted-foreground mb-6">
               The process typically takes just 24 hours from initial consultation to completion.
             </p>
-            <Button 
-              size="lg" 
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
-              onClick={() => navigate("/apply")}
-            >
-              Start Your Application
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg" 
+                className="bg-primary text-primary-foreground hover:bg-primary/90"
+                onClick={() => navigate("/apply")}
+              >
+                Nominee Director Service
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                onClick={() => navigate("/nominee-buyers")}
+              >
+                Nominee Buyer Service
+              </Button>
+            </div>
           </div>
         </div>
       </div>

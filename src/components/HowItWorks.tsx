@@ -75,14 +75,14 @@ const HowItWorks = () => {
                 className="bg-primary text-primary-foreground hover:bg-primary/90"
                 onClick={() => navigate("/apply")}
               >
-                Nominee Director Service
+                I Need a Nominee Director
               </Button>
               <Button 
                 size="lg" 
                 variant="outline"
                 onClick={() => navigate("/nominee-buyers")}
               >
-                Nominee Buyer Service
+                Become a Nominee Director
               </Button>
             </div>
           </div>

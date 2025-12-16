@@ -60,18 +60,18 @@ const Footer = () => {
             <h3 className="font-semibold text-foreground mb-4">Get Started</h3>
             <div className="flex flex-col gap-3">
               <Button 
-                variant="outline" 
+                variant="default" 
                 size="sm"
                 onClick={() => navigate("/apply")}
               >
-                Nominee Director Service
+                I Need a Nominee Director
               </Button>
               <Button 
-                variant="default" 
+                variant="outline" 
                 size="sm"
                 onClick={() => navigate("/nominee-buyers")}
               >
-                Nominee Buyer Service
+                Become a Nominee Director
               </Button>
             </div>
           </div>

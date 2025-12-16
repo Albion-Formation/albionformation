@@ -33,15 +33,15 @@ const CTASection = () => {
               className="bg-background text-foreground hover:bg-background/90"
               onClick={() => navigate("/apply")}
             >
-              Nominee Director Service
+              I Need a Nominee Director
             </Button>
             <Button 
               size="lg" 
-              variant="secondary"
-              className="bg-background text-foreground hover:bg-background/90"
+              variant="outline"
+              className="border-background/50 text-primary-foreground hover:bg-background/20"
               onClick={() => navigate("/nominee-buyers")}
             >
-              Nominee Buyer Service
+              Become a Nominee Director
             </Button>
           </div>
           

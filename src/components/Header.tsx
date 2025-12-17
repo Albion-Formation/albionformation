@@ -46,13 +46,13 @@ const Header = () => {
           <div className="hidden lg:flex gap-3">
             <Button 
               variant="default" 
-              onClick={() => navigate("/apply")}
+              onClick={() => navigate("/nominee-buyers")}
             >
               I Need a Nominee Director
             </Button>
             <Button 
               variant="outline" 
-              onClick={() => navigate("/nominee-buyers")}
+              onClick={() => navigate("/apply")}
             >
               Become a Nominee Director
             </Button>
@@ -114,7 +114,7 @@ const Header = () => {
                   <Button 
                     variant="default" 
                     onClick={() => {
-                      navigate("/apply");
+                      navigate("/nominee-buyers");
                       setOpen(false);
                     }}
                   >
@@ -123,7 +123,7 @@ const Header = () => {
                   <Button 
                     variant="outline" 
                     onClick={() => {
-                      navigate("/nominee-buyers");
+                      navigate("/apply");
                       setOpen(false);
                     }}
                   >

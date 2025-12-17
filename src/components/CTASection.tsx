@@ -31,7 +31,7 @@ const CTASection = () => {
               size="lg" 
               variant="secondary"
               className="bg-background text-foreground hover:bg-background/90"
-              onClick={() => navigate("/apply")}
+              onClick={() => navigate("/nominee-buyers")}
             >
               I Need a Nominee Director
             </Button>
@@ -39,7 +39,7 @@ const CTASection = () => {
               size="lg" 
               variant="outline"
               className="border-background/50 text-primary-foreground hover:bg-background/20"
-              onClick={() => navigate("/nominee-buyers")}
+              onClick={() => navigate("/apply")}
             >
               Become a Nominee Director
             </Button>

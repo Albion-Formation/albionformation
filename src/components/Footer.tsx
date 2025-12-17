@@ -62,14 +62,14 @@ const Footer = () => {
               <Button 
                 variant="default" 
                 size="sm"
-                onClick={() => navigate("/apply")}
+                onClick={() => navigate("/nominee-buyers")}
               >
                 I Need a Nominee Director
               </Button>
               <Button 
                 variant="outline" 
                 size="sm"
-                onClick={() => navigate("/nominee-buyers")}
+                onClick={() => navigate("/apply")}
               >
                 Become a Nominee Director
               </Button>

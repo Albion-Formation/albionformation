@@ -86,6 +86,12 @@ const BusinessFormationForm = ({ isOpen, onClose }: BusinessFormationFormProps) 
         throw new Error(`Failed to submit form: ${response.status} ${errorText}`);
       }
       
+      // Trigger GTM event on successful submission
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      (window as any).dataLayer.push({
+        event: "lead_submit_success"
+      });
+      
       toast({
         title: "Application Submitted Successfully!",
         description: "We'll be in touch within 24 hours to discuss your requirements.",

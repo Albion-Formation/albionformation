@@ -82,6 +82,12 @@ const NomineeBuyers = () => {
         throw new Error(`Failed to submit form: ${response.status} ${errorText}`);
       }
       
+      // Trigger GTM event on successful submission
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      (window as any).dataLayer.push({
+        event: "lead_submit_success"
+      });
+      
       navigate("/thank-you");
     } catch (error) {
       toast({

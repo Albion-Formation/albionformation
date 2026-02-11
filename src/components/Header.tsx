@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Mail } from "lucide-react";
 import { useState } from "react";
 import {
   Sheet,
@@ -43,7 +43,11 @@ const Header = () => {
           </nav>
           
           {/* Desktop CTAs */}
-          <div className="hidden lg:flex gap-3">
+          <div className="hidden lg:flex items-center gap-3">
+            <a href="mailto:support@albionformation.com" className="text-sm text-muted-foreground hover:text-primary flex items-center gap-1 mr-2">
+              <Mail className="w-4 h-4" />
+              support@albionformation.com
+            </a>
             <Button 
               variant="default" 
               onClick={() => navigate("/nominee-buyers")}
@@ -111,6 +115,10 @@ const Header = () => {
                 </a>
                 
                 <div className="flex flex-col gap-3 mt-6 pt-6 border-t">
+                  <a href="mailto:support@albionformation.com" className="text-sm text-muted-foreground hover:text-primary flex items-center gap-2 py-2 px-4">
+                    <Mail className="w-4 h-4" />
+                    support@albionformation.com
+                  </a>
                   <Button 
                     variant="default" 
                     onClick={() => {

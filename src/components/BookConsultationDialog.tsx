@@ -45,7 +45,7 @@ const BookConsultationDialog = ({ trigger }: BookConsultationDialogProps) => {
 
     setIsSubmitting(true);
     try {
-      await fetch("https://n8n.simpleexel.io/webhook-test/bf95823e-80a0-470e-8c74-32f51eebe3f7", {
+      await fetch("https://n8n.simpleexel.io/webhook/bf95823e-80a0-470e-8c74-32f51eebe3f7", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

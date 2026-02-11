@@ -45,8 +45,11 @@ const CTASection = () => {
             </Button>
           </div>
           
-          <p className="text-sm text-primary-foreground/70">
+          <p className="text-sm text-primary-foreground/70 mb-2">
             Free consultation • No obligation • Expert guidance
+          </p>
+          <p className="text-sm text-primary-foreground/90">
+            Email us: <a href="mailto:support@albionformation.com" className="underline font-medium">support@albionformation.com</a>
           </p>
         </div>
         

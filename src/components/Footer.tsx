@@ -11,9 +11,12 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <h2 className="text-2xl font-bold text-foreground">ALBION</h2>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-muted-foreground mb-3">
               Professional nominee services for UK companies. Fast, private, and fully compliant.
             </p>
+            <a href="mailto:support@albionformation.com" className="text-sm text-primary hover:underline">
+              support@albionformation.com
+            </a>
           </div>
 
           {/* Quick Links */}

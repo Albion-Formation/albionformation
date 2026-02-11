@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+import BookConsultationDialog from "@/components/BookConsultationDialog";
 
 const FAQ = () => {
   const faqs = [
@@ -68,11 +69,13 @@ const FAQ = () => {
           <p className="text-muted-foreground mb-6">
             Our experts are here to help. Book a free consultation to get personalized answers to your specific situation.
           </p>
-          <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
-            <a href="mailto:support@albionformation.com?subject=Book a Free Consultation">
-              Book Free Consultation
-            </a>
-          </Button>
+          <BookConsultationDialog
+            trigger={
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                Book Free Consultation
+              </Button>
+            }
+          />
         </div>
       </div>
     </section>

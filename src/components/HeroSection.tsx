@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check } from "lucide-react";
+import { Check, ShieldCheck, Building2, Globe, Landmark } from "lucide-react";
 
 const HeroSection = () => {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const HeroSection = () => {
                 <span className="text-4xl lg:text-5xl">Fully Compliant</span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg">
-                Protect your privacy and operate with confidence using our UK-registered nominee services.
+                Need a UK-resident director for your company? Our professional nominee directors appear on Companies House records while you retain full control through legally binding agreements — Declaration of Trust, Power of Attorney, and Director Services Agreement.
               </p>
             </div>
             
@@ -50,46 +50,47 @@ const HeroSection = () => {
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-success rounded-full"></div>
-                <span className="text-sm font-medium text-foreground">100% Legal</span>
+                <span className="text-sm font-medium text-foreground">Companies Act 2006 Compliant</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-success rounded-full"></div>
+                <span className="text-sm font-medium text-foreground">KYC/AML Verified</span>
               </div>
             </div>
           </div>
           
-          {/* Right side - Quick Setup Process */}
+          {/* Right side - Who This Is For */}
           <div className="lg:pl-8">
             <Card className="p-8 bg-card shadow-lg">
-              <h3 className="text-xl font-semibold text-foreground mb-6">Quick Setup Process</h3>
-              <div className="space-y-6">
+              <h3 className="text-xl font-semibold text-foreground mb-2">Who Needs a Nominee Director?</h3>
+              <p className="text-sm text-muted-foreground mb-6">Our service is ideal if you are:</p>
+              <div className="space-y-5">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-semibold">
-                    1
-                  </div>
+                  <Globe className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="text-foreground font-medium">Free consultation call</p>
+                    <p className="text-foreground font-medium">Non-UK Resident Needing a UK Director</p>
+                    <p className="text-sm text-muted-foreground">Most UK banks require a UK-resident director to open a business account</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-semibold">
-                    2
-                  </div>
+                  <ShieldCheck className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="text-foreground font-medium">Document submission</p>
+                    <p className="text-foreground font-medium">Privacy-Focused Business Owner</p>
+                    <p className="text-sm text-muted-foreground">Keep your personal details off the public Companies House register</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-semibold">
-                    3
-                  </div>
+                  <Landmark className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="text-foreground font-medium">Nominee assignment</p>
+                    <p className="text-foreground font-medium">Need UK Banking Access</p>
+                    <p className="text-sm text-muted-foreground">A UK-resident director significantly improves bank account approval rates</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-sm font-semibold">
-                    4
-                  </div>
+                  <Building2 className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="text-foreground font-medium">Certificate delivery</p>
+                    <p className="text-foreground font-medium">Seeking UK Business Credibility</p>
+                    <p className="text-sm text-muted-foreground">Enhance trust with UK clients, suppliers, and contract partners</p>
                   </div>
                 </div>
               </div>

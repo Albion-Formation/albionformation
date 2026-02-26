@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Phone, FileText, UserCheck, Award } from "lucide-react";
+import { Phone, FileText, UserCheck, Award, ShieldCheck } from "lucide-react";
 
 const HowItWorks = () => {
   const navigate = useNavigate();
@@ -10,25 +10,25 @@ const HowItWorks = () => {
       number: "1",
       icon: Phone,
       title: "Book a Free Call",
-      description: "Schedule a consultation with our experts to discuss your requirements and answer any questions."
+      description: "Schedule a consultation with our corporate services team. We'll assess your needs — whether you require a nominee for privacy, UK residency, or banking — and recommend the right structure."
     },
     {
       number: "2",
       icon: FileText,
-      title: "Submit ID & Documents",
-      description: "Provide the necessary identification and company documents through our secure portal."
+      title: "KYC & Document Submission",
+      description: "Provide identification (passport or driving licence) and proof of address. We complete mandatory KYC/AML verification — this is a legal requirement that protects both parties."
     },
     {
       number: "3",
       icon: UserCheck,
-      title: "We Assign Nominee",
-      description: "We match you with a qualified UK nominee director who meets your specific needs."
+      title: "Nominee Appointment",
+      description: "We assign a qualified UK-resident nominee director, draft all legal agreements (Declaration of Trust, Power of Attorney, Director Services Agreement), and file the appointment with Companies House."
     },
     {
       number: "4",
       icon: Award,
-      title: "You Receive Certificate",
-      description: "Get your official nominee director agreement and all required documentation."
+      title: "You Receive Full Documentation",
+      description: "Get your signed nominee director agreements, Companies House confirmation, and all legal documents. Your company is active and can start trading immediately."
     }
   ];
 
@@ -40,7 +40,7 @@ const HowItWorks = () => {
             How It Works
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Our streamlined process makes it easy to set up your nominee director arrangement quickly and securely.
+            Our streamlined, fully compliant process gets your nominee director appointed in as little as 24 hours.
           </p>
         </div>
         
@@ -62,12 +62,23 @@ const HowItWorks = () => {
             </Card>
           ))}
         </div>
+
+        {/* Compliance note */}
+        <div className="mt-12 flex items-start gap-4 bg-secondary/50 rounded-lg p-6 max-w-3xl mx-auto">
+          <ShieldCheck className="w-8 h-8 text-success flex-shrink-0 mt-1" />
+          <div>
+            <h4 className="font-semibold text-foreground mb-1">Fully Transparent & Legal</h4>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Our nominee arrangements are fully compliant with the UK Companies Act 2006. The true beneficial owner is always disclosed on the PSC (People with Significant Control) register and to HMRC. This is a standard, widely-used corporate structure — not a way to hide ownership from authorities.
+            </p>
+          </div>
+        </div>
         
         <div className="text-center mt-16">
           <div className="bg-secondary/50 rounded-lg p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold text-foreground mb-4">Ready to Get Started?</h3>
             <p className="text-muted-foreground mb-6">
-              The process typically takes just 24 hours from initial consultation to completion.
+              The process typically takes just 24 hours from initial consultation to completion. Same-day express service also available.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 

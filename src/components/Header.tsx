@@ -45,13 +45,13 @@ const Header = () => {
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-3">
             <Button 
-              variant="outline" 
+              variant="default" 
               onClick={() => navigate("/apply")}
-            >
+              >
               Become a Nominee Director
             </Button>
             <Button 
-              variant="default" 
+              variant="outline" 
               onClick={() => navigate("/nominee-buyers")}
             >
               I Need a Nominee Director
@@ -112,16 +112,16 @@ const Header = () => {
                 
                 <div className="flex flex-col gap-3 mt-6 pt-6 border-t">
                   <Button 
-                    variant="outline" 
+                      variant="default" 
                     onClick={() => {
                       navigate("/apply");
                       setOpen(false);
                     }}
-                  >
+                    >
                     Become a Nominee Director
                   </Button>
                   <Button 
-                    variant="default" 
+                    variant="outline" 
                     onClick={() => {
                       navigate("/nominee-buyers");
                       setOpen(false);

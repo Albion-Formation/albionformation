@@ -25,17 +25,17 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90"
-                onClick={() => navigate("/nominee-buyers")}
-              >
-                I Need a Nominee Director
+                onClick={() => navigate("/apply")}
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
+                >
+                Become a Nominee Director
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
-                onClick={() => navigate("/apply")}
+                onClick={() => navigate("/nominee-buyers")}
               >
-                Become a Nominee Director
+                I Need a Nominee Director
               </Button>
             </div>
             

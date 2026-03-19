@@ -1,100 +1,76 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Check, ShieldCheck, Building2, Globe, Landmark } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 
 const HeroSection = () => {
   const navigate = useNavigate();
+
   return (
-    <section className="bg-background py-16 lg:py-24">
+    <section className="relative overflow-hidden bg-background py-20 lg:py-28">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,#dbeafe_0%,transparent_58%)]" />
+      <div className="pointer-events-none absolute -top-28 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Main content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-                UK Nominee Director Services<br />
-                <span className="text-4xl lg:text-5xl">Fast, Private &</span><br />
-                <span className="text-4xl lg:text-5xl">Fully Compliant</span>
-              </h1>
-              <p className="text-lg text-muted-foreground max-w-lg">
-                Need a UK-resident director for your company? Our professional nominee directors appear on Companies House records while you retain full control through legally binding agreements — Declaration of Trust, Power of Attorney, and Director Services Agreement.
-              </p>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
+        <div className="relative mx-auto max-w-4xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/85 px-4 py-1.5 text-sm text-muted-foreground shadow-sm backdrop-blur">
+            <span className="h-2 w-2 rounded-full bg-primary" />
+            Trusted by global founders
+          </div>
+
+          <h1 className="mt-7 text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            UK Nominee Director Services — For Businesses &amp; Professionals
+          </h1>
+
+          <p className="mx-auto mt-6 max-w-3xl text-lg text-muted-foreground sm:text-xl">
+            Whether you need a UK nominee director for your company or want to join as a director, choose your path below.
+          </p>
+
+          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
+            <div className="space-y-2">
+              <Button
                 size="lg"
-                onClick={() => navigate("/apply")}
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
-                >
-                Become a Nominee Director
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                onClick={() => navigate("/nominee-buyers")}
+                onClick={() => navigate("/nominee-director-service")}
+                className="mx-auto h-12 w-full max-w-[320px] rounded-2xl bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 hover:bg-primary/90"
               >
                 I Need a Nominee Director
               </Button>
+              <p className="text-sm text-muted-foreground">For business owners and founders</p>
             </div>
-            
-            <div className="flex flex-wrap gap-6 pt-4">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-success rounded-full"></div>
-                <span className="text-sm font-medium text-foreground">UK Registered</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-success rounded-full"></div>
-                <span className="text-sm font-medium text-foreground">24hr Setup</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-success rounded-full"></div>
-                <span className="text-sm font-medium text-foreground">Companies Act 2006 Compliant</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-success rounded-full"></div>
-                <span className="text-sm font-medium text-foreground">KYC/AML Verified</span>
-              </div>
+
+            <div className="space-y-2">
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => navigate("/become-a-nominee-director")}
+                className="mx-auto h-12 w-full max-w-[320px] rounded-2xl border-border bg-background/80 px-5 text-sm font-semibold text-foreground shadow-md hover:bg-muted/60"
+              >
+                I Want to Become a Nominee Director
+              </Button>
+              <p className="text-sm text-muted-foreground">For professionals applying as directors</p>
             </div>
           </div>
-          
-          {/* Right side - Who This Is For */}
-          <div className="lg:pl-8">
-            <Card className="p-8 bg-card shadow-lg">
-              <h3 className="text-xl font-semibold text-foreground mb-2">Who Needs a Nominee Director?</h3>
-              <p className="text-sm text-muted-foreground mb-6">Our service is ideal if you are:</p>
-              <div className="space-y-5">
-                <div className="flex items-start gap-4">
-                  <Globe className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-foreground font-medium">Non-UK Resident Needing a UK Director</p>
-                    <p className="text-sm text-muted-foreground">Most UK banks require a UK-resident director to open a business account</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <ShieldCheck className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-foreground font-medium">Privacy-Focused Business Owner</p>
-                    <p className="text-sm text-muted-foreground">Keep your personal details off the public Companies House register</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <Landmark className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-foreground font-medium">Need UK Banking Access</p>
-                    <p className="text-sm text-muted-foreground">A UK-resident director significantly improves bank account approval rates</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <Building2 className="w-5 h-5 text-success mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-foreground font-medium">Seeking UK Business Credibility</p>
-                    <p className="text-sm text-muted-foreground">Enhance trust with UK clients, suppliers, and contract partners</p>
-                  </div>
-                </div>
-              </div>
-            </Card>
+
+          <p className="mx-auto mt-8 max-w-3xl text-sm text-muted-foreground">
+            We provide nominee director services and also accept applications. Please select the correct option to continue.
+          </p>
+          <p className="mx-auto mt-3 max-w-3xl rounded-lg border border-border/60 bg-muted/40 px-4 py-3 text-xs font-medium text-muted-foreground sm:text-sm">
+            This is a professional service arrangement. Eligibility criteria apply. Not a guaranteed income offer.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="h-4 w-4 text-primary" />
+              <span>UK-focused compliance support</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-base" aria-hidden="true">
+                🇬🇧
+              </span>
+              <span>Built for UK company requirements</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-success" />
+              <span>Fast onboarding for both paths</span>
+            </div>
           </div>
         </div>
       </div>

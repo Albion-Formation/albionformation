@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Clock, Users, TrendingUp } from "lucide-react";
+import { Clock, Users } from "lucide-react";
 
 const CTASection = () => {
   const navigate = useNavigate();
@@ -9,10 +9,10 @@ const CTASection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Slots for August Are Filling Fast
+            Start with the right path
           </h2>
           <p className="text-lg text-primary-foreground/80 max-w-3xl mx-auto mb-8">
-            Don't wait to protect your privacy. Our expert team is ready to set up your nominee director arrangement within 24 hours.
+            Whether you are appointing a nominee director or applying to become one, our team will guide you through a compliant, fast onboarding process.
           </p>
           
           <div className="flex flex-wrap justify-center gap-8 mb-8">
@@ -30,18 +30,18 @@ const CTASection = () => {
             <Button 
               size="lg" 
               variant="secondary"
-              className="bg-background text-foreground hover:bg-background/90"
-              onClick={() => navigate("/nominee-buyers")}
+              className="rounded-2xl bg-background text-foreground hover:bg-background/90"
+              onClick={() => navigate("/nominee-director-service")}
             >
               I Need a Nominee Director
             </Button>
             <Button 
               size="lg" 
               variant="outline"
-              className="border-background/50 text-primary-foreground hover:bg-background/20"
-              onClick={() => navigate("/apply")}
+              className="rounded-2xl border-background/50 text-primary-foreground hover:bg-background/20"
+              onClick={() => navigate("/become-a-nominee-director")}
             >
-              Become a Nominee Director
+              I Want to Become a Nominee Director
             </Button>
           </div>
           

@@ -135,6 +135,14 @@ const Footer = () => {
                   Terms & Conditions
                 </a>
               </li>
+              <li>
+                <a
+                  href="/cookies"
+                  className="text-muted-foreground hover:text-primary text-sm"
+                >
+                  Cookie Policy
+                </a>
+              </li>
             </ul>
           </div>
 

@@ -1,101 +1,52 @@
-import { useNavigate } from "react-router-dom";
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Phone, FileText, UserCheck, Award, ShieldCheck } from "lucide-react";
-
 const HowItWorks = () => {
-  const navigate = useNavigate();
   const steps = [
     {
       number: "1",
-      icon: Phone,
-      title: "Book a Free Call",
-      description: "Schedule a consultation with our corporate services team. We'll assess your needs — whether you require a nominee for privacy, UK residency, or banking — and recommend the right structure."
+      title: "Choose your path",
+      description: "Select whether you need a nominee director or want to apply as one."
     },
     {
       number: "2",
-      icon: FileText,
-      title: "KYC & Document Submission",
-      description: "Provide identification (passport or driving licence) and proof of address. We complete mandatory KYC/AML verification — this is a legal requirement that protects both parties."
+      title: "Submit required details",
+      description: "Complete KYC and onboarding information through our guided process."
     },
     {
       number: "3",
-      icon: UserCheck,
-      title: "Nominee Appointment",
-      description: "We assign a qualified UK-resident nominee director, draft all legal agreements (Declaration of Trust, Power of Attorney, Director Services Agreement), and file the appointment with Companies House."
-    },
-    {
-      number: "4",
-      icon: Award,
-      title: "You Receive Full Documentation",
-      description: "Get your signed nominee director agreements, Companies House confirmation, and all legal documents. Your company is active and can start trading immediately."
+      title: "Activate and proceed",
+      description: "Get approved and move forward with compliant UK director support."
     }
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-background">
+    <section id="how-it-works" className="scroll-mt-24 bg-background py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-6">
-            How It Works
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Our streamlined, fully compliant process gets your nominee director appointed in as little as 24 hours.
-          </p>
-        </div>
-        
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step, index) => (
-            <Card key={index} className="p-6 text-center relative">
-              <div className="mb-6">
-                <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                  {step.number}
-                </div>
-                <step.icon className="w-8 h-8 text-success mx-auto" />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">
-                {step.title}
-              </h3>
-              <p className="text-muted-foreground">
-                {step.description}
-              </p>
-            </Card>
-          ))}
-        </div>
+        <div className="relative overflow-hidden rounded-2xl border border-slate-800 bg-slate-950 px-6 py-10 shadow-2xl sm:px-10 sm:py-14 lg:px-16 lg:py-16">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_0%,rgba(14,165,233,0.14),transparent_45%),radial-gradient(circle_at_85%_20%,rgba(59,130,246,0.10),transparent_40%)]" />
 
-        {/* Compliance note */}
-        <div className="mt-12 flex items-start gap-4 bg-secondary/50 rounded-lg p-6 max-w-3xl mx-auto">
-          <ShieldCheck className="w-8 h-8 text-success flex-shrink-0 mt-1" />
-          <div>
-            <h4 className="font-semibold text-foreground mb-1">Fully Transparent & Legal</h4>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Our nominee arrangements are fully compliant with the UK Companies Act 2006. The true beneficial owner is always disclosed on the PSC (People with Significant Control) register and to HMRC. This is a standard, widely-used corporate structure — not a way to hide ownership from authorities.
-            </p>
-          </div>
-        </div>
-        
-        <div className="text-center mt-16">
-          <div className="bg-secondary/50 rounded-lg p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-foreground mb-4">Ready to Get Started?</h3>
-            <p className="text-muted-foreground mb-6">
-              The process typically takes just 24 hours from initial consultation to completion. Same-day express service also available.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                className="bg-primary text-primary-foreground hover:bg-primary/90"
-                onClick={() => navigate("/nominee-buyers")}
-              >
-                I Need a Nominee Director
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
-                onClick={() => navigate("/apply")}
-              >
-                Become a Nominee Director
-              </Button>
+          <div className="relative z-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">HOW IT WORKS</p>
+            <h2 className="mt-4 max-w-3xl text-3xl font-semibold leading-tight text-slate-100 sm:text-4xl lg:text-5xl">
+              Get started in 3 clear steps with UK nominee director support.
+            </h2>
+
+            <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
+              {steps.map((step) => (
+                <article
+                  key={step.number}
+                  className="rounded-2xl border border-slate-800/80 bg-slate-900/80 p-6 shadow-lg shadow-black/20 backdrop-blur"
+                >
+                  <p className="bg-gradient-to-b from-slate-200 to-slate-600 bg-clip-text text-6xl font-semibold leading-none text-transparent">
+                    {step.number}
+                  </p>
+                  <h3 className="mt-5 text-2xl font-medium text-slate-100">{step.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-400">{step.description}</p>
+                </article>
+              ))}
             </div>
+
+            <p className="mt-8 text-sm text-slate-400">
+              Fully compliant process for business owners and professionals.
+            </p>
           </div>
         </div>
       </div>

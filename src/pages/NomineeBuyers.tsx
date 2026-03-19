@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2, CircleOff, FileCheck2, Landmark, ShieldCheck, Users } from "lucide-react";
 
@@ -551,6 +552,7 @@ const NomineeBuyers = () => {
           </Form>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import {
   BadgeCheck,
@@ -703,6 +704,7 @@ const Apply = () => {
           </Form>
         </div>
       </main>
+      <Footer />
     </div>
   );
 };

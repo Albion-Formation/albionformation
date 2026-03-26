@@ -163,7 +163,7 @@ const Apply = () => {
       windowWithDataLayer.dataLayer = windowWithDataLayer.dataLayer || [];
       windowWithDataLayer.dataLayer.push({ event: "lead_submit_success" });
       
-      navigate("/thank-you");
+      navigate("/thank-you", { state: { fromLeadForm: true } });
     } catch (error) {
       toast({
         title: "Error",

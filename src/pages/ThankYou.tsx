@@ -1,10 +1,23 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
 
+type ThankYouLocationState = { fromLeadForm?: boolean };
+
 const ThankYou = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const fromLeadForm = (location.state as ThankYouLocationState | null)?.fromLeadForm;
+    if (!fromLeadForm) return;
+
+    const w = window as typeof window & { gtag?: (...args: unknown[]) => void };
+    w.gtag?.("event", "conversion", {
+      send_to: "AW-18041264047/H8COCKKTuo8cEK-v35pD",
+    });
+  }, [location.state]);
 
   useEffect(() => {
     const timer = setTimeout(() => {

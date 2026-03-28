@@ -51,14 +51,14 @@ const Header = () => {
             <Button
               variant="outline"
               className="rounded-2xl"
-              onClick={() => navigate("/become-a-nominee-director")}
+              onClick={() => navigate("/apply")}
             >
               Become a Director
             </Button>
             <Button
               variant="default"
               className="rounded-2xl"
-              onClick={() => navigate("/nominee-director-service")}
+              onClick={() => navigate("/nominee-buyers")}
             >
               Need a Director
             </Button>
@@ -93,7 +93,7 @@ const Header = () => {
                       variant="default"
                       className="rounded-2xl"
                       onClick={() => {
-                        navigate("/nominee-director-service");
+                        navigate("/nominee-buyers");
                         setOpen(false);
                       }}
                     >
@@ -103,7 +103,7 @@ const Header = () => {
                       variant="outline"
                       className="rounded-2xl"
                       onClick={() => {
-                        navigate("/become-a-nominee-director");
+                        navigate("/apply");
                         setOpen(false);
                       }}
                     >

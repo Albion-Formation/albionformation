@@ -49,8 +49,6 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/apply" element={<Apply />} />
           <Route path="/nominee-buyers" element={<NomineeBuyers />} />
-          <Route path="/become-a-nominee-director" element={<Apply />} />
-          <Route path="/nominee-director-service" element={<NomineeBuyers />} />
           <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />

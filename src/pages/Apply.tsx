@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { useForm, type FieldErrors } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
@@ -58,6 +58,7 @@ const formSchema = z.object({
 });
 
 type FormData = z.infer<typeof formSchema>;
+const APPLY_WEBHOOK_URL = "https://n8n.simpleexel.io/webhook/8ad3fd29-3f79-4386-bffe-1e53f1f314dc";
 
 const Apply = () => {
   const navigate = useNavigate();
@@ -136,6 +137,7 @@ const Apply = () => {
   const beenDirectorBefore = form.watch("beenDirectorBefore");
 
   const onSubmit = async (data: FormData) => {
+    console.info("[Apply] onSubmit invoked");
     setIsSubmitting(true);
     try {
       const payload = {
@@ -146,16 +148,25 @@ const Apply = () => {
       Object.entries(payload).forEach(([k, v]) => {
         if (v !== undefined) params.append(k, String(v));
       });
-      const response = await fetch("https://n8n.simpleexel.io/webhook/8ad3fd29-3f79-4386-bffe-1e53f1f314dc", {
+      console.info("[Apply] Calling webhook", {
+        url: APPLY_WEBHOOK_URL,
+        encodedBodyLength: params.toString().length,
+      });
+      const response = await fetch(APPLY_WEBHOOK_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         },
         body: params.toString(),
       });
+      console.info("[Apply] Webhook response received", {
+        status: response.status,
+        ok: response.ok,
+      });
 
       if (!response.ok) {
         const errorText = await response.text().catch(() => "");
+        console.error("[Apply] Webhook request failed", { status: response.status, errorText });
         throw new Error(`Failed to submit form: ${response.status} ${errorText}`);
       }
       
@@ -163,8 +174,10 @@ const Apply = () => {
       windowWithDataLayer.dataLayer = windowWithDataLayer.dataLayer || [];
       windowWithDataLayer.dataLayer.push({ event: "lead_submit_success" });
       
+      console.info("[Apply] Submission succeeded, navigating to thank-you");
       navigate("/thank-you");
     } catch (error) {
+      console.error("[Apply] Submission error", error);
       toast({
         title: "Error",
         description: "There was an error submitting your application. Please try again.",
@@ -172,7 +185,12 @@ const Apply = () => {
       });
     } finally {
       setIsSubmitting(false);
+      console.info("[Apply] Submit flow finished");
     }
+  };
+
+  const onInvalidSubmit = (errors: FieldErrors<FormData>) => {
+    console.warn("[Apply] Form validation failed", errors);
   };
 
   return (
@@ -306,7 +324,7 @@ const Apply = () => {
 
         <div className="mx-auto max-w-full rounded-2xl border border-border bg-card p-6 shadow-lg sm:p-8">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <form onSubmit={form.handleSubmit(onSubmit, onInvalidSubmit)} className="space-y-8">
               <div className="rounded-xl border border-border/70 bg-background/70 p-5 sm:p-6">
                 <h3 className="text-lg font-semibold text-foreground">Contact details</h3>
                 <p className="mt-1 text-sm text-muted-foreground">Use details that match your identity and screening records.</p>

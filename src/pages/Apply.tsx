@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useMemo, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useForm, type FieldErrors } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -62,6 +62,7 @@ const APPLY_WEBHOOK_URL = "https://n8n.simpleexel.io/webhook/8ad3fd29-3f79-4386-
 
 const Apply = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const scrollToForm = () => {
@@ -70,6 +71,32 @@ const Apply = () => {
       block: "start",
     });
   };
+
+  const attribution = useMemo(() => {
+    const search = location.search ?? "";
+    const q = new URLSearchParams(search.startsWith("?") ? search.slice(1) : search);
+    const get = (key: string) => {
+      const val = q.get(key);
+      return val && val.trim().length > 0 ? val.trim() : undefined;
+    };
+
+    // Common ad/analytics identifiers and UTMs.
+    const source = get("source") ?? get("utm_source");
+    return {
+      source,
+      utm_source: get("utm_source"),
+      utm_medium: get("utm_medium"),
+      utm_campaign: get("utm_campaign"),
+      utm_content: get("utm_content"),
+      utm_term: get("utm_term"),
+      fbclid: get("fbclid"),
+      gclid: get("gclid"),
+      msclkid: get("msclkid"),
+      // Keep the raw query string for debugging/auditing.
+      landing_query: search,
+    } as const;
+  }, [location.search]);
+
   const applicantProfile = [
     "Professionals seeking nominee director opportunities",
     "Applicants comfortable with formal KYC and compliance checks",
@@ -143,6 +170,7 @@ const Apply = () => {
       const payload = {
         ...data,
         dateOfBirth: `${data.dobYear}-${data.dobMonth}-${data.dobDate}`,
+        ...attribution,
       } as const;
       const params = new URLSearchParams();
       Object.entries(payload).forEach(([k, v]) => {
@@ -172,7 +200,13 @@ const Apply = () => {
       
       const windowWithDataLayer = window as Window & { dataLayer?: Array<Record<string, string>> };
       windowWithDataLayer.dataLayer = windowWithDataLayer.dataLayer || [];
-      windowWithDataLayer.dataLayer.push({ event: "lead_submit_success" });
+      windowWithDataLayer.dataLayer.push({
+        event: "lead_submit_success",
+        lead_source: attribution.source ?? "",
+        utm_source: attribution.utm_source ?? "",
+        utm_medium: attribution.utm_medium ?? "",
+        utm_campaign: attribution.utm_campaign ?? "",
+      });
       
       console.info("[Apply] Submission succeeded, navigating to thank-you");
       navigate("/thank-you");

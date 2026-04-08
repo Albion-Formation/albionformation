@@ -60,6 +60,20 @@ const formSchema = z.object({
 type FormData = z.infer<typeof formSchema>;
 const APPLY_WEBHOOK_URL = "https://n8n.simpleexel.io/webhook/8ad3fd29-3f79-4386-bffe-1e53f1f314dc";
 
+/** Trims and strips surrounding quotes — ad tools sometimes paste `source="googleads"` literally. */
+function normalizeQueryParamValue(raw: string | null): string | undefined {
+  if (raw == null) return undefined;
+  let s = raw.trim();
+  if (!s) return undefined;
+  while (
+    (s.startsWith('"') && s.endsWith('"')) ||
+    (s.startsWith("'") && s.endsWith("'"))
+  ) {
+    s = s.slice(1, -1).trim();
+  }
+  return s.length > 0 ? s : undefined;
+}
+
 const Apply = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -75,10 +89,7 @@ const Apply = () => {
   const attribution = useMemo(() => {
     const search = location.search ?? "";
     const q = new URLSearchParams(search.startsWith("?") ? search.slice(1) : search);
-    const get = (key: string) => {
-      const val = q.get(key);
-      return val && val.trim().length > 0 ? val.trim() : undefined;
-    };
+    const get = (key: string) => normalizeQueryParamValue(q.get(key));
 
     // Common ad/analytics identifiers and UTMs.
     const source = get("source") ?? get("utm_source");
@@ -167,10 +178,18 @@ const Apply = () => {
     console.info("[Apply] onSubmit invoked");
     setIsSubmitting(true);
     try {
+      // Snapshot at submit time so the webhook matches the browser address bar (avoids stale memo / odd router edge cases).
+      const landingQuery = typeof window !== "undefined" ? window.location.search : "";
+      const landingPageUrl = typeof window !== "undefined" ? window.location.href : "";
+      const referrer = typeof document !== "undefined" ? document.referrer || "" : "";
+
       const payload = {
         ...data,
         dateOfBirth: `${data.dobYear}-${data.dobMonth}-${data.dobDate}`,
         ...attribution,
+        landing_query: landingQuery,
+        landing_page_url: landingPageUrl,
+        referrer,
       } as const;
       const params = new URLSearchParams();
       Object.entries(payload).forEach(([k, v]) => {

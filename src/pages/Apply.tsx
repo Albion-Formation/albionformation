@@ -98,43 +98,43 @@ const ELIGIBILITY_QUALIFY: { title: string; subtitle: string }[] = [
     subtitle: "Anywhere in England, Scotland, Wales or Northern Ireland",
   },
   {
-    title: "At least 18 years old",
-    subtitle: "With legal capacity to enter into formal agreements",
+    title: "Aged 18 or over",
+    subtitle: "No upper age limit",
   },
   {
-    title: "Willing to complete verification",
-    subtitle: "Identity and compliance checks — standard for any director role",
+    title: "Looking for passive income that fits your lifestyle",
+    subtitle: "Employed, self-employed, retired — all welcome",
   },
   {
-    title: "Able to meet basic suitability checks",
-    subtitle: "Credit profile and director history help us assess fit and compliance readiness",
+    title: "Happy to sign a fully documented agreement",
+    subtitle: "Our team explains every detail before you commit to anything",
   },
   {
-    title: "Ready to review everything in writing",
-    subtitle: "Agreements are explained and signed before anything is filed on your behalf",
+    title: "Have a valid UK address",
+    subtitle: "For official correspondence only",
   },
 ];
 
 const ELIGIBILITY_DONT_NEED: { title: string; subtitle: string }[] = [
   {
     title: "Any business or director experience",
-    subtitle: "Truly zero experience required",
+    subtitle: "Designed for everyday people, not professionals",
   },
   {
-    title: "A second job or fixed hours",
-    subtitle: "No day-to-day operational workload",
+    title: "To manage or operate the company",
+    subtitle: "The owner handles 100% of that",
   },
   {
-    title: "Your own company to run",
-    subtitle: "You are not launching or operating a business yourself",
+    title: "To attend meetings or be available daily",
+    subtitle: "No time commitment after initial set-up",
   },
   {
-    title: "Capital to invest",
-    subtitle: "This is a structured service arrangement, not an investment product",
+    title: "To leave or change your current job",
+    subtitle: "This works alongside anything you\u2019re already doing",
   },
   {
-    title: "To commute or sit in an office",
-    subtitle: "Everything is handled with remote support from our UK team",
+    title: "To travel or relocate",
+    subtitle: "Your existing UK address is everything you need",
   },
 ];
 
@@ -221,37 +221,36 @@ const Apply = () => {
     } as const;
   }, [location.search]);
 
-  const faqItems: { question: string; answer: string; emphasized?: boolean }[] = [
+  const faqItems: { question: string; answer: string }[] = [
     {
-      question: "What actually is a Nominee Director?",
+      question: "What exactly is this opportunity?",
       answer:
-        "A Nominee Director is a UK resident whose name is listed as director of a company on behalf of an international business owner. You don\u2019t run or manage anything \u2014 the owner retains full control. It is a well-established, professional arrangement used by thousands of businesses setting up in the UK every year.",
+        "Albion Formation connects UK residents with international companies that need a UK resident in a paid professional role. You are hired into that position. You do not run or manage anything. The company handles all operations. You simply hold the role and receive a passive income.",
     },
     {
-      question: "Will I be responsible for anything the company does?",
+      question: "Do I have to manage or run the company?",
       answer:
-        "Your role and its boundaries are clearly defined in the agreements you sign before anything begins. These documents exist specifically to protect you and spell out exactly what you are — and are not — responsible for. Our team explains every line before you sign. You never go in blind.",
+        "Absolutely not. The company handles 100% of operations. You do not attend meetings, make business decisions, or take on any day-to-day activities. Once the initial setup is complete, your involvement is minimal.",
     },
     {
-      question: "Do I need to do anything on a daily basis?",
+      question: "How do I actually earn from this?",
       answer:
-        "No. Once the arrangement is set up and the documents are signed, there are no daily tasks, check-ins, or commitments required from you. The business owner handles all operations. Your primary role after the initial set-up is simply to remain listed.",
-      emphasized: true,
+        "You receive a compensation payment for the professional role you hold. The exact amount is confirmed by our team during your eligibility call. Your income is entirely passive once the arrangement is in place.",
     },
     {
-      question: "Is this legitimate? How do I know it\u2019s not a scam?",
+      question: "Is this a legitimate opportunity?",
       answer:
-        "Nominee directorship is a recognised professional arrangement in the UK used by established businesses and service providers. Albion Formation ensures every arrangement is fully documented. We encourage all applicants to take their time reviewing agreements and ask every question before committing. There is never any pressure from our team.",
+        "Yes. This is a widely used, recognised professional arrangement in the UK. Every arrangement through Albion Formation is fully documented. We always encourage applicants to take their time, ask every question, and review everything before making any commitment. There is never any pressure.",
     },
     {
       question: "What happens after I fill in the form?",
       answer:
-        "Our team will contact you within 1 business day to have a friendly conversation about the opportunity, confirm your eligibility, and answer any questions you have. There is absolutely no obligation — filling in the form is simply you raising your hand to find out more. No paperwork at this stage.",
+        "Our UK team will call you within 1 business day for a friendly conversation to confirm your eligibility, explain the full opportunity, and answer every question you have. Zero obligation at this stage.",
     },
     {
       question: "What happens to my personal data?",
       answer:
-        "All information submitted through this page is handled in strict accordance with UK GDPR. We will only use your data to contact you about this specific opportunity. We never sell or share your information with third parties. You can withdraw consent at any time by contacting us directly.",
+        "All data submitted is processed in full compliance with UK GDPR. We only use it to contact you about this opportunity. We never share or sell your information to any third party.",
     },
   ];
 
@@ -357,85 +356,481 @@ const Apply = () => {
       <Header />
 
       <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <section className="relative overflow-hidden rounded-2xl border border-border/80 bg-card px-8 py-12 shadow-sm sm:px-10 sm:py-14 lg:px-14 lg:py-16">
+        <section className="relative overflow-hidden rounded-2xl border border-border/70 bg-primary text-primary-foreground shadow-lg">
           <div
-            className="pointer-events-none absolute inset-0 bg-gradient-to-bl from-slate-100/90 via-card to-card dark:from-secondary/40 dark:via-card dark:to-card"
+            className="pointer-events-none absolute inset-0 z-0 opacity-[0.08] [background-image:linear-gradient(to_right,hsl(var(--primary-foreground)/0.12)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--primary-foreground)/0.12)_1px,transparent_1px)] [background-size:36px_36px]"
             aria-hidden
           />
-          <div
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_55%_at_100%_0%,hsl(214_95%_93%_/_0.9)_0%,transparent_58%)] dark:bg-[radial-gradient(ellipse_75%_55%_at_100%_0%,hsl(215_28%_22%_/_0.5)_0%,transparent_55%)]"
-            aria-hidden
-          />
-          {/* Stacked on small screens; 2-col grid on lg so width is used deliberately (no orphaned “dead” zone) */}
-          <div className="relative flex flex-col gap-10 lg:grid lg:grid-cols-12 lg:items-stretch lg:gap-x-12 lg:gap-y-10 xl:gap-x-16">
-            <div className="lg:col-span-5">
-              <div className="inline-flex w-fit items-center rounded-full border border-slate-200/90 bg-background/80 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-500 backdrop-blur-[2px] dark:border-border dark:bg-background/60 dark:text-muted-foreground">
-                OPEN TO UK RESIDENTS · NO EXPERIENCE NEEDED
-              </div>
-              <h1 className="mt-7 text-balance text-[1.75rem] font-bold leading-[1.12] tracking-tight text-foreground sm:text-4xl sm:leading-[1.1] lg:mt-8 lg:text-[2.35rem] lg:leading-[1.08] xl:text-[2.65rem]">
-                No Second Job.
-                <br />
-                No New Skills.
-                <br />
-                Just Your UK Address —
-                <br />
-                And a Monthly
-                <br />
-                Income.
-              </h1>
-            </div>
-
-            <div className="lg:col-span-7 lg:col-start-6 lg:row-span-2 lg:row-start-1">
-              <div className="space-y-8 rounded-2xl border border-border/60 bg-background/70 p-6 shadow-sm backdrop-blur-sm sm:p-8 lg:h-full lg:py-9 xl:p-10 dark:bg-background/40">
-                <p className="text-pretty text-[0.9375rem] leading-[1.65] text-muted-foreground sm:text-base">
-                  Albion Formation connects UK residents with international businesses that need a local director.{" "}
-                  <strong className="font-semibold text-foreground">
-                    You lend your name. They run the company. You get paid.
-                  </strong>{" "}
-                  Full documentation protects you throughout.
+          <div className="relative z-[1] grid gap-10 px-6 py-10 sm:px-10 sm:py-12 lg:grid-cols-12 lg:gap-10 lg:px-12 lg:py-14">
+            <div className="lg:col-span-6">
+              <div className="border-l-4 border-destructive bg-destructive/20 px-4 py-3 sm:px-5 sm:py-4">
+                <p className="text-sm font-semibold text-primary-foreground/95 sm:text-base">
+                  <span className="font-bold">Limited openings available.</span> We currently have a small number of
+                  positions open. Once filled, applications close until the next intake.
                 </p>
-                <ul className="flex flex-col gap-3 text-[0.9375rem] text-muted-foreground sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-4 sm:gap-y-3">
-                  <li className="flex items-center gap-2.5">
-                    <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-muted-foreground/20 bg-muted/40 text-muted-foreground">
-                      <CheckCircle2 className="h-3.5 w-3.5" strokeWidth={2.25} aria-hidden />
-                    </span>
-                    No Office Required
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-muted-foreground/20 bg-muted/40 text-muted-foreground">
-                      <CheckCircle2 className="h-3.5 w-3.5" strokeWidth={2.25} aria-hidden />
-                    </span>
-                    No Daily Tasks
-                  </li>
-                  <li className="flex items-center gap-2.5">
-                    <span className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full border border-muted-foreground/20 bg-muted/40 text-muted-foreground">
-                      <CheckCircle2 className="h-3.5 w-3.5" strokeWidth={2.25} aria-hidden />
-                    </span>
-                    Fully Documented
-                  </li>
-                </ul>
-                <blockquote className="border-l border-border pl-5 sm:pl-6">
-                  <p className="text-[0.9375rem] italic leading-relaxed text-muted-foreground sm:text-base">
-                    &ldquo;I genuinely had no idea this was possible. The process was simple and the team explained
-                    everything. I was up and running within a week.&rdquo;
-                  </p>
-                  <footer className="mt-4 text-sm font-normal not-italic leading-snug text-muted-foreground">
-                    — Sarah M., Manchester · Joined 2024
-                  </footer>
-                </blockquote>
               </div>
-            </div>
 
-            <div className="lg:col-span-5 lg:row-start-2 lg:row-end-3 lg:self-end">
+              <h1 className="mt-8 max-w-2xl text-balance text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:max-w-none lg:text-5xl">
+                <span className="block">Are You a UK Resident</span>
+                <span className="mt-1 block font-bold italic text-primary-foreground">Looking For Extra Income?</span>
+              </h1>
+
+              <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-primary-foreground/75 sm:text-lg lg:max-w-none">
+                Albion Formation connects UK Residents with Businesses who are looking to hire qualified individuals for
+                one of the most effortless earning opportunities available in the UK today.
+              </p>
+
+              <ul className="mt-8 max-w-lg space-y-3.5 text-[0.9375rem] sm:text-base lg:max-w-none">
+                {[
+                  "Work from home",
+                  "No office, no commute, no daily commitment",
+                  "Fits around your current job, retirement or lifestyle",
+                  "No experience or qualifications required",
+                  "Our team handles all the paperwork for you",
+                ].map((line) => (
+                  <li key={line} className="flex items-start gap-3">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary-foreground" strokeWidth={2.25} aria-hidden />
+                    <span>{line}</span>
+                  </li>
+                ))}
+              </ul>
+
               <Button
                 type="button"
                 onClick={scrollToForm}
-                size="lg"
-                className="h-12 w-full rounded-lg text-sm font-bold shadow-sm sm:w-auto sm:min-w-[200px]"
+                className="mt-8 h-12 rounded-lg bg-background px-8 text-sm font-bold tracking-wide text-foreground hover:bg-background/90"
               >
-                Start Application
+                GET STARTED
               </Button>
+
+              <blockquote className="mt-10 max-w-xl border-l-[3px] border-primary-foreground pl-5 sm:pl-6 lg:max-w-none">
+                <p className="text-pretty text-[0.9375rem] italic leading-relaxed text-primary-foreground/75 sm:text-base">
+                  &ldquo;I genuinely do nothing day to day, and a payment arrives regularly. The Albion team handled
+                  everything from start to finish. Set up in days.&rdquo;
+                </p>
+                <footer className="mt-3 text-sm font-medium not-italic text-primary-foreground">
+                  James T., Birmingham &middot; Joined 2024
+                </footer>
+              </blockquote>
             </div>
+
+            <div className="lg:col-span-6">
+              <div className="rounded-2xl border border-primary-foreground/15 bg-background p-6 text-foreground shadow-lg sm:p-7">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">Application form</p>
+                <h2 className="mt-3 text-xl font-bold text-foreground sm:text-2xl">
+                  Start your nominee director application
+                </h2>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Complete this form to submit instantly. It uses the same validation and submit flow.
+                </p>
+                <Form {...form}>
+                  <form
+                    onSubmit={form.handleSubmit(onSubmit, onInvalidSubmit)}
+                    className="mt-5 grid max-h-[70vh] grid-cols-1 gap-3 overflow-y-auto pr-1 sm:grid-cols-2"
+                  >
+                    <FormField
+                      control={form.control}
+                      name="firstName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <Input className="h-11" placeholder="First name" {...field} />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="lastName"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <Input className="h-11" placeholder="Last name" {...field} />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="phoneNumber"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <Input className="h-11" placeholder="Phone number" {...field} />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <Input className="h-11" placeholder="Email address" {...field} />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="confirmEmail"
+                      render={({ field }) => (
+                        <FormItem className="sm:col-span-2">
+                          <FormControl>
+                            <Input className="h-11" placeholder="Confirm email address" {...field} />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
+
+                    <div className="space-y-4 rounded-xl border border-border/70 bg-background/70 p-4 sm:col-span-2">
+                      <FormLabel className="text-base font-semibold">Date of birth</FormLabel>
+                      <div className="grid grid-cols-3 gap-3">
+                        <FormField
+                          control={form.control}
+                          name="dobMonth"
+                          render={({ field }) => (
+                            <FormItem>
+                              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                <FormControl>
+                                  <SelectTrigger className="h-11">
+                                    <SelectValue placeholder="MM" />
+                                  </SelectTrigger>
+                                </FormControl>
+                                <SelectContent>
+                                  {Array.from({ length: 12 }, (_, i) => {
+                                    const val = String(i + 1).padStart(2, "0");
+                                    return (
+                                      <SelectItem key={val} value={val}>
+                                        {val}
+                                      </SelectItem>
+                                    );
+                                  })}
+                                </SelectContent>
+                              </Select>
+                            </FormItem>
+                          )}
+                        />
+                        <FormField
+                          control={form.control}
+                          name="dobDate"
+                          render={({ field }) => (
+                            <FormItem>
+                              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                <FormControl>
+                                  <SelectTrigger className="h-11">
+                                    <SelectValue placeholder="DD" />
+                                  </SelectTrigger>
+                                </FormControl>
+                                <SelectContent>
+                                  {Array.from({ length: 31 }, (_, i) => {
+                                    const val = String(i + 1).padStart(2, "0");
+                                    return (
+                                      <SelectItem key={val} value={val}>
+                                        {val}
+                                      </SelectItem>
+                                    );
+                                  })}
+                                </SelectContent>
+                              </Select>
+                            </FormItem>
+                          )}
+                        />
+                        <FormField
+                          control={form.control}
+                          name="dobYear"
+                          render={({ field }) => (
+                            <FormItem>
+                              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                <FormControl>
+                                  <SelectTrigger className="h-11">
+                                    <SelectValue placeholder="YYYY" />
+                                  </SelectTrigger>
+                                </FormControl>
+                                <SelectContent>
+                                  {Array.from({ length: 100 }, (_, i) => {
+                                    const year = new Date().getFullYear() - i;
+                                    return (
+                                      <SelectItem key={year} value={String(year)}>
+                                        {year}
+                                      </SelectItem>
+                                    );
+                                  })}
+                                </SelectContent>
+                              </Select>
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-4 rounded-xl border border-border/70 bg-background/70 p-4 sm:col-span-2">
+                      <FormField
+                        control={form.control}
+                        name="beenDirectorBefore"
+                        render={({ field }) => (
+                          <FormItem className="space-y-2">
+                            <FormLabel>Have you been a director before?</FormLabel>
+                            <FormControl>
+                              <RadioGroup onValueChange={field.onChange} value={field.value} className="flex gap-3">
+                                <div className="flex items-center space-x-2 rounded-lg border border-border bg-background px-3 py-2">
+                                  <RadioGroupItem value="yes" id="hero-director-yes" />
+                                  <label htmlFor="hero-director-yes" className="text-sm">
+                                    Yes
+                                  </label>
+                                </div>
+                                <div className="flex items-center space-x-2 rounded-lg border border-border bg-background px-3 py-2">
+                                  <RadioGroupItem value="no" id="hero-director-no" />
+                                  <label htmlFor="hero-director-no" className="text-sm">
+                                    No
+                                  </label>
+                                </div>
+                              </RadioGroup>
+                            </FormControl>
+                          </FormItem>
+                        )}
+                      />
+
+                      {beenDirectorBefore === "yes" && (
+                        <FormField
+                          control={form.control}
+                          name="hasGovUKLogin"
+                          render={({ field }) => (
+                            <FormItem className="space-y-2">
+                              <FormLabel>Do you have a Gov UK One Login?</FormLabel>
+                              <FormControl>
+                                <RadioGroup onValueChange={field.onChange} value={field.value} className="flex gap-3">
+                                  <div className="flex items-center space-x-2 rounded-lg border border-border bg-background px-3 py-2">
+                                    <RadioGroupItem value="yes" id="hero-govuk-yes" />
+                                    <label htmlFor="hero-govuk-yes" className="text-sm">
+                                      Yes
+                                    </label>
+                                  </div>
+                                  <div className="flex items-center space-x-2 rounded-lg border border-border bg-background px-3 py-2">
+                                    <RadioGroupItem value="no" id="hero-govuk-no" />
+                                    <label htmlFor="hero-govuk-no" className="text-sm">
+                                      No
+                                    </label>
+                                  </div>
+                                </RadioGroup>
+                              </FormControl>
+                            </FormItem>
+                          )}
+                        />
+                      )}
+
+                      <FormField
+                        control={form.control}
+                        name="currentlyDirector"
+                        render={({ field }) => (
+                          <FormItem className="space-y-2">
+                            <FormLabel>Are you currently a Director?</FormLabel>
+                            <FormControl>
+                              <RadioGroup onValueChange={field.onChange} value={field.value} className="flex gap-3">
+                                <div className="flex items-center space-x-2 rounded-lg border border-border bg-background px-3 py-2">
+                                  <RadioGroupItem value="yes" id="hero-current-yes" />
+                                  <label htmlFor="hero-current-yes" className="text-sm">
+                                    Yes
+                                  </label>
+                                </div>
+                                <div className="flex items-center space-x-2 rounded-lg border border-border bg-background px-3 py-2">
+                                  <RadioGroupItem value="no" id="hero-current-no" />
+                                  <label htmlFor="hero-current-no" className="text-sm">
+                                    No
+                                  </label>
+                                </div>
+                              </RadioGroup>
+                            </FormControl>
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="creditScoreRange"
+                        render={({ field }) => (
+                          <FormItem className="space-y-2">
+                            <FormLabel>Do you have a good credit score?</FormLabel>
+                            <FormControl>
+                              <RadioGroup
+                                onValueChange={field.onChange}
+                                value={field.value}
+                                className="flex flex-col gap-2 sm:flex-row sm:flex-wrap"
+                              >
+                                <div className="flex items-center space-x-2 rounded-lg border border-border bg-background px-3 py-2">
+                                  <RadioGroupItem value="100-300" id="hero-credit-low" />
+                                  <label htmlFor="hero-credit-low" className="text-sm">
+                                    100-300
+                                  </label>
+                                </div>
+                                <div className="flex items-center space-x-2 rounded-lg border border-border bg-background px-3 py-2">
+                                  <RadioGroupItem value="301-600" id="hero-credit-mid" />
+                                  <label htmlFor="hero-credit-mid" className="text-sm">
+                                    301-600
+                                  </label>
+                                </div>
+                                <div className="flex items-center space-x-2 rounded-lg border border-border bg-background px-3 py-2">
+                                  <RadioGroupItem value="601-999" id="hero-credit-high" />
+                                  <label htmlFor="hero-credit-high" className="text-sm">
+                                    601-999
+                                  </label>
+                                </div>
+                              </RadioGroup>
+                            </FormControl>
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="hasClearScoreAccount"
+                        render={({ field }) => (
+                          <FormItem className="space-y-2">
+                            <FormLabel>Do you have a ClearScore account?</FormLabel>
+                            <FormControl>
+                              <RadioGroup onValueChange={field.onChange} value={field.value} className="flex gap-3">
+                                <div className="flex items-center space-x-2 rounded-lg border border-border bg-background px-3 py-2">
+                                  <RadioGroupItem value="yes" id="hero-clearscore-yes" />
+                                  <label htmlFor="hero-clearscore-yes" className="text-sm">
+                                    Yes
+                                  </label>
+                                </div>
+                                <div className="flex items-center space-x-2 rounded-lg border border-border bg-background px-3 py-2">
+                                  <RadioGroupItem value="no" id="hero-clearscore-no" />
+                                  <label htmlFor="hero-clearscore-no" className="text-sm">
+                                    No
+                                  </label>
+                                </div>
+                              </RadioGroup>
+                            </FormControl>
+                          </FormItem>
+                        )}
+                      />
+
+                      <FormField
+                        control={form.control}
+                        name="preferredContactTime"
+                        render={({ field }) => (
+                          <FormItem className="space-y-2">
+                            <FormLabel>What time is best to contact you?</FormLabel>
+                            <FormControl>
+                              <RadioGroup
+                                onValueChange={field.onChange}
+                                value={field.value}
+                                className="flex flex-col gap-2 sm:flex-row sm:flex-wrap"
+                              >
+                                <div className="flex items-center space-x-2 rounded-lg border border-border bg-background px-3 py-2">
+                                  <RadioGroupItem value="morning" id="hero-time-morning" />
+                                  <label htmlFor="hero-time-morning" className="text-sm">
+                                    Morning
+                                  </label>
+                                </div>
+                                <div className="flex items-center space-x-2 rounded-lg border border-border bg-background px-3 py-2">
+                                  <RadioGroupItem value="midday" id="hero-time-midday" />
+                                  <label htmlFor="hero-time-midday" className="text-sm">
+                                    Midday
+                                  </label>
+                                </div>
+                                <div className="flex items-center space-x-2 rounded-lg border border-border bg-background px-3 py-2">
+                                  <RadioGroupItem value="afternoon" id="hero-time-afternoon" />
+                                  <label htmlFor="hero-time-afternoon" className="text-sm">
+                                    Afternoon
+                                  </label>
+                                </div>
+                                <div className="flex items-center space-x-2 rounded-lg border border-border bg-background px-3 py-2">
+                                  <RadioGroupItem value="evening" id="hero-time-evening" />
+                                  <label htmlFor="hero-time-evening" className="text-sm">
+                                    Evening
+                                  </label>
+                                </div>
+                              </RadioGroup>
+                            </FormControl>
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <div className="space-y-3 rounded-xl border border-border/70 bg-background/70 p-4 sm:col-span-2">
+                      <FormField
+                        control={form.control}
+                        name="gdprConsent"
+                        render={({ field }) => (
+                          <FormItem className="flex flex-row items-start space-x-3 rounded-lg border border-border/60 bg-background p-3">
+                            <FormControl>
+                              <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+                            </FormControl>
+                            <div className="leading-none !mt-0">
+                              <FormLabel className="text-xs leading-relaxed">
+                                I consent to the processing of my personal data under GDPR requirements (required for
+                                UK/EU leads). *
+                              </FormLabel>
+                            </div>
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="privacyConsent"
+                        render={({ field }) => (
+                          <FormItem className="flex flex-row items-start space-x-3 rounded-lg border border-border/60 bg-background p-3">
+                            <FormControl>
+                              <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+                            </FormControl>
+                            <div className="leading-none !mt-0">
+                              <FormLabel className="text-xs leading-relaxed">
+                                I agree to the processing of my personal data as outlined in the{" "}
+                                <a href="/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                                  Privacy Policy
+                                </a>{" "}
+                                and{" "}
+                                <a href="/terms" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                                  Terms of Service
+                                </a>
+                                . *
+                              </FormLabel>
+                            </div>
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="marketingConsent"
+                        render={({ field }) => (
+                          <FormItem className="flex flex-row items-start space-x-3 rounded-lg border border-border/60 bg-background p-3">
+                            <FormControl>
+                              <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+                            </FormControl>
+                            <div className="leading-none !mt-0">
+                              <FormLabel className="text-xs leading-relaxed">
+                                I consent to receiving marketing communications and analytics tracking (optional)
+                              </FormLabel>
+                            </div>
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      className="mt-2 h-12 w-full rounded-lg text-sm font-bold tracking-wide sm:col-span-2"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? "Submitting..." : "GET STARTED"}
+                    </Button>
+                  </form>
+                </Form>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative z-[1] flex flex-wrap items-center justify-center gap-2 border-t border-primary-foreground/15 bg-background px-4 py-3.5 text-center text-sm text-muted-foreground">
+            <span className="text-lg leading-none" role="img" aria-label="UK">
+              🇬🇧
+            </span>
+            <span>
+              <strong className="font-semibold text-foreground">200+ UK residents</strong> have applied this week
+            </span>
           </div>
         </section>
 
@@ -443,7 +838,7 @@ const Apply = () => {
           <div className="max-w-xl lg:max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">The opportunity</p>
             <h2 className="mt-4 font-serif text-3xl font-semibold leading-[1.15] tracking-tight text-foreground sm:text-4xl">
-              Here&apos;s Exactly
+              Here is Exactly
               <br />
               <span className="italic text-primary">What This Is</span>
             </h2>
@@ -458,8 +853,8 @@ const Apply = () => {
               <div className="h-1 w-full bg-primary-foreground/25 dark:bg-foreground/15" aria-hidden />
               <div className="px-6 pb-2 pt-8 sm:px-8 sm:pt-10">
                 <h3 className="font-serif text-2xl font-semibold leading-tight sm:text-[1.65rem]">
-                  <span className="text-primary-foreground dark:text-foreground">The Simple </span>
-                  <span className="italic text-primary-foreground/90 dark:italic dark:text-foreground/90">
+                  <span className="block text-primary-foreground dark:text-foreground">The Simple</span>
+                  <span className="mt-0.5 block font-serif italic text-primary-foreground/90 dark:text-foreground/90">
                     Exchange
                   </span>
                 </h3>
@@ -471,10 +866,8 @@ const Apply = () => {
                     aria-hidden
                   />
                   <p className="text-sm leading-relaxed text-primary-foreground/90 dark:text-foreground/90 sm:text-[0.9375rem]">
-                    An international entrepreneur wants to{" "}
-                    <strong className="font-semibold text-primary-foreground dark:text-foreground">
-                      set up a company in the UK
-                    </strong>
+                    Companies worldwide want to operate in the UK. To do so officially, they need a UK resident
+                    listed in a professional capacity within their company.
                   </p>
                 </li>
                 <li className="flex gap-4 px-6 py-5 sm:px-8">
@@ -483,11 +876,8 @@ const Apply = () => {
                     aria-hidden
                   />
                   <p className="text-sm leading-relaxed text-primary-foreground/90 dark:text-foreground/90 sm:text-[0.9375rem]">
-                    UK regulations require a{" "}
-                    <strong className="font-semibold text-primary-foreground dark:text-foreground">
-                      UK-resident director
-                    </strong>{" "}
-                    to be listed
+                    Albion Formation connects those companies with UK residents who want a simple, flexible way to
+                    earn extra income.
                   </p>
                 </li>
                 <li className="flex gap-4 px-6 py-5 sm:px-8">
@@ -496,8 +886,8 @@ const Apply = () => {
                     aria-hidden
                   />
                   <p className="text-sm leading-relaxed text-primary-foreground/90 dark:text-foreground/90 sm:text-[0.9375rem]">
-                    <strong className="font-semibold text-primary-foreground dark:text-foreground">You fill that role.</strong>{" "}
-                    Your name is listed. You don&apos;t run anything.
+                    You are brought on in that professional role. You do not run the business, manage staff or handle
+                    operations. That is entirely the company&apos;s responsibility.
                   </p>
                 </li>
                 <li className="flex gap-4 px-6 py-5 sm:px-8">
@@ -506,10 +896,8 @@ const Apply = () => {
                     aria-hidden
                   />
                   <p className="text-sm leading-relaxed text-primary-foreground/90 dark:text-foreground/90 sm:text-[0.9375rem]">
-                    They manage the business.{" "}
-                    <strong className="font-semibold text-primary-foreground dark:text-foreground">
-                      You receive your compensation.
-                    </strong>
+                    In return, the company pays you a passive income. Nothing further is required from you on a daily
+                    basis.
                   </p>
                 </li>
               </ul>
@@ -602,23 +990,25 @@ const Apply = () => {
         </section>
 
         <section className="mt-12 overflow-hidden rounded-2xl border border-primary/15 bg-primary px-6 py-12 text-primary-foreground shadow-md sm:mt-16 sm:px-10 sm:py-14 lg:px-14 lg:py-16 dark:border-border dark:bg-secondary dark:text-secondary-foreground dark:shadow-sm">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/60 dark:text-foreground/55">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/80 dark:text-foreground/70">
             Eligibility
           </p>
-          <h2 className="mt-4 max-w-3xl text-3xl font-bold leading-[1.12] tracking-tight sm:text-4xl">
-            <span className="text-primary-foreground dark:text-foreground">Is This </span>
-            <span className="font-serif italic text-primary-foreground/95 dark:text-foreground/95">For You?</span>
+          <h2 className="mt-4 max-w-3xl font-serif text-3xl font-bold leading-[1.12] tracking-tight sm:text-4xl">
+            <span className="text-primary-foreground dark:text-foreground">Do </span>
+            <span className="italic text-primary-foreground dark:text-foreground">You</span>
+            <span className="text-primary-foreground dark:text-foreground"> Qualify?</span>
           </h2>
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/65 dark:text-foreground/70 sm:text-lg">
-            If you tick these boxes, you&apos;re likely already eligible. Applying takes 2 minutes to find out for
-            certain.
+            Tick the boxes on the left and you&apos;re most of the way there already.
           </p>
 
           <div className="mt-12 grid gap-12 lg:mt-14 lg:grid-cols-2 lg:gap-16">
             <div>
               <div className="flex items-center gap-2 border-b border-success pb-3">
                 <CheckCircle2 className="h-4 w-4 shrink-0 text-success" strokeWidth={2.5} aria-hidden />
-                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-success">You qualify if you are…</p>
+                <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-success">
+                  You qualify if you are…
+                </p>
               </div>
               <ul className="divide-y divide-primary-foreground/10 dark:divide-border">
                 {ELIGIBILITY_QUALIFY.map((row) => (
@@ -708,15 +1098,7 @@ const Apply = () => {
                 className="group border-b border-border"
               >
                 <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 text-left text-base font-semibold text-foreground marker:content-none [&::-webkit-details-marker]:hidden">
-                  <span
-                    className={
-                      item.emphasized
-                        ? "text-primary group-open:text-foreground"
-                        : "group-open:text-foreground"
-                    }
-                  >
-                    {item.question}
-                  </span>
+                  <span className="group-open:text-foreground">{item.question}</span>
                   <span className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground transition-colors group-open:bg-foreground group-open:text-background dark:group-open:bg-foreground dark:group-open:text-background">
                     <Plus
                       className="h-4 w-4 transition-opacity group-open:opacity-0"

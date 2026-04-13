@@ -1068,7 +1068,7 @@ const Apply = () => {
             Professional service arrangement. Compensation varies per individual arrangement. Not guaranteed employment.
           </p>
           <p className="mx-auto mt-6 w-full max-w-none px-2 text-xs leading-relaxed text-muted-foreground sm:px-4">
-            © 2025 Albion Formation Ltd. All rights reserved. Albion Formation Ltd is registered in England &amp; Wales.
+            © 2026 Albion Formation Ltd. All rights reserved. Albion Formation Ltd is registered in England &amp; Wales.
             Data processed in accordance with UK GDPR.
           </p>
         </section>

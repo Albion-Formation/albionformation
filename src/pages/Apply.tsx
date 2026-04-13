@@ -829,7 +829,7 @@ const Apply = () => {
                     Start your application
                   </h2>
                   <p className="mt-2 w-full text-sm leading-relaxed text-muted-foreground">
-                    Keep the current registration flow — complete the details below so our UK team can review your profile.
+                    Complete the details below so our UK team can review your profile.
                   </p>
                 </div>
                 <div className="p-6 sm:p-8">

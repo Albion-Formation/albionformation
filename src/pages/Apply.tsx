@@ -423,6 +423,14 @@ const Apply = () => {
                 <p className="mt-2 text-sm text-muted-foreground">
                   Complete this form to submit instantly. It uses the same validation and submit flow.
                 </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  Prefer to speak to someone directly?{" "}
+                  <a href="tel:+442039984418" className="font-semibold text-primary hover:underline">
+                    📞 +44 20 3998 4418
+                  </a>
+                  <br />
+                  Mon-Fri 9 am-6 pm · Sat 10 am-4 pm
+                </p>
                 <Form {...form}>
                   <form
                     onSubmit={form.handleSubmit(onSubmit, onInvalidSubmit)}

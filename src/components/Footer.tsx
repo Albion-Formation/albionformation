@@ -67,6 +67,14 @@ const Footer = () => {
             >
               support@albionformation.com
             </a>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Prefer to speak to someone directly?{" "}
+              <a href="tel:+442039984418" className="font-semibold text-primary hover:underline">
+                📞 +44 20 3998 4418
+              </a>
+              <br />
+              Mon-Fri 9 am-6 pm · Sat 10 am-4 pm
+            </p>
             {/* Social Media */}
             <div className="flex gap-3 pt-1">
               {socialLinks.map((s) => (

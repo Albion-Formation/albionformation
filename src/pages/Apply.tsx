@@ -426,7 +426,7 @@ const Apply = () => {
                 <Form {...form}>
                   <form
                     onSubmit={form.handleSubmit(onSubmit, onInvalidSubmit)}
-                    className="mt-5 grid max-h-[70vh] grid-cols-1 gap-3 overflow-y-auto pr-1 sm:grid-cols-2"
+                    className="mt-5 grid grid-cols-1 gap-3 overflow-visible pr-1 sm:grid-cols-2 md:max-h-[70vh] md:overflow-y-auto"
                   >
                     <FormField
                       control={form.control}

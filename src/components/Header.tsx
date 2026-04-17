@@ -27,7 +27,7 @@ const Header = () => {
             <img
               src="/albion-logo.png"
               alt="ALBION"
-              className="h-10 w-auto cursor-pointer"
+              className="h-14 w-auto cursor-pointer"
               onClick={() => navigate("/")}
             />
           </div>

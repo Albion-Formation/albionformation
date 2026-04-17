@@ -57,7 +57,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <img
-              src="/albion-logo.png"
+              src="https://nominator-onboard-pro.lovable.app/assets/albion-logo-DKpDRu5H.png"
               alt="ALBION"
               className="h-10 w-auto"
             />
@@ -72,7 +72,7 @@ const Footer = () => {
               support@albionformation.com
             </a>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Prefer to speak to someone directly?{" "}
+              Prefer to speak to someone directly?{" "}<br/>
               <a href="tel:+442039984418" className="font-semibold text-primary hover:underline">
                 📞 +44 20 3998 4418
               </a>

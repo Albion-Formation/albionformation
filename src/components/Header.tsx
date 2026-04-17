@@ -25,7 +25,7 @@ const Header = () => {
         <div className="flex h-16 items-center">
           <div className="flex flex-1 items-center">
             <img
-              src="/albion-logo.png"
+              src="https://nominator-onboard-pro.lovable.app/assets/albion-logo-DKpDRu5H.png"
               alt="ALBION"
               className="h-14 w-auto cursor-pointer"
               onClick={() => navigate("/")}

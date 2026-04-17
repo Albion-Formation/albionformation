@@ -56,7 +56,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-foreground">ALBION</h2>
+            <img
+              src="/albion-logo.png"
+              alt="ALBION"
+              className="h-10 w-auto"
+            />
             <p className="text-sm text-muted-foreground mb-3">
               Professional nominee services for UK companies. Fast, private, and
               fully compliant.

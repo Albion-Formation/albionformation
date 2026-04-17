@@ -24,9 +24,12 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center">
           <div className="flex flex-1 items-center">
-            <h1 className="cursor-pointer text-2xl font-bold tracking-tight text-foreground" onClick={() => navigate("/")}>
-              ALBION
-            </h1>
+            <img
+              src="/albion-logo.png"
+              alt="ALBION"
+              className="h-10 w-auto cursor-pointer"
+              onClick={() => navigate("/")}
+            />
           </div>
 
           {/* Desktop Navigation */}

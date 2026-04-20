@@ -38,7 +38,7 @@ const CTASection = () => {
             <Button 
               size="lg" 
               variant="outline"
-              className="rounded-2xl border-background/50 text-primary-foreground hover:bg-background/20"
+              className="rounded-2xl border-2 border-background bg-transparent text-primary-foreground hover:bg-background hover:text-foreground"
               onClick={() => navigate("/apply")}
             >
               I Want to Become a Nominee Director

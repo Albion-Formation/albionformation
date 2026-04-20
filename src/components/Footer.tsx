@@ -79,6 +79,17 @@ const Footer = () => {
               <br />
               Mon-Fri 9 am-6 pm · Sat 10 am-4 pm
             </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Chat with us on WhatsApp:{" "}
+              <a
+                href="https://wa.me/447516413026?text=Hi%20Albion%2C%20I'd%20like%20to%20know%20more%20about%20your%20nominee%20director%20services."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-primary hover:underline"
+              >
+                💬 +44 7516 413026
+              </a>
+            </p>
             {/* Social Media */}
             <div className="flex gap-3 pt-1">
               {socialLinks.map((s) => (

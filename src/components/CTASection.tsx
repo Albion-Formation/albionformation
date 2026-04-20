@@ -51,6 +51,17 @@ const CTASection = () => {
           <p className="text-sm text-primary-foreground/90">
             Email us: <a href="mailto:support@albionformation.com" className="underline font-medium">support@albionformation.com</a>
           </p>
+          <p className="text-sm text-primary-foreground/90 mt-1">
+            Or chat with us on{" "}
+            <a
+              href="https://wa.me/447516413026?text=Hi%20Albion%2C%20I'd%20like%20to%20know%20more%20about%20your%20nominee%20director%20services."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline font-medium"
+            >
+              WhatsApp: +44 7516 413026
+            </a>
+          </p>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8 text-center">

@@ -1,7 +1,6 @@
 const WHATSAPP_NUMBER = "447516413026";
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  "Hi Albion, I'd like to know more about your nominee director services."
-)}`;
+const WHATSAPP_MESSAGE = "Hi Albion, I'd like to know more about your nominee director services.";
+const WHATSAPP_URL = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 
 const WhatsAppFloat = () => {
   return (

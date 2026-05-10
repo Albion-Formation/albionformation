@@ -22,7 +22,7 @@ const FAQ = () => {
       answer: "No. The nominee director acts only as instructed by you. They cannot make business decisions without your approval, access bank accounts without your authorisation, act independently, or interfere with day-to-day operations. Your control is maintained through the Declaration of Trust (confirming your beneficial ownership), Power of Attorney (giving you authority to act), and the Director Services Agreement (setting out the nominee's limited role). You remain the beneficial owner at all times."
     },
     {
-      question: "Why would I need a nominee director?",
+      question: "Why would Get a Nominee Director?",
       answer: "There are several common reasons: (1) Privacy Protection — keep your personal details off the public Companies House register. (2) UK Residency Requirement — most UK banks require a UK-resident director to open a business account. (3) Business Credibility — a UK-resident director enhances trust with UK clients, suppliers, and contract partners. (4) Non-UK Residents — if you're based outside the UK, a nominee lets you maintain a UK corporate presence and satisfy banking/legal requirements. (5) Time Zones — a UK-based signatory available during UK business hours for urgent documents."
     },
     {

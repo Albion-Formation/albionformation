@@ -31,7 +31,7 @@ const HeroSection = () => {
                 onClick={() => navigate("/nominee-buyers")}
                 className="mx-auto h-12 w-full max-w-[320px] rounded-2xl bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 hover:bg-primary/90"
               >
-                I Need a Nominee Director
+                Get a Nominee Director
               </Button>
               <p className="text-sm text-muted-foreground">For business owners and founders</p>
             </div>

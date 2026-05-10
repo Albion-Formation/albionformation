@@ -63,7 +63,7 @@ const Header = () => {
               className="rounded-2xl"
               onClick={() => navigate("/nominee-buyers")}
             >
-              Need a Director
+              Get a Nominee Director
             </Button>
           </div>
 
@@ -100,7 +100,7 @@ const Header = () => {
                         setOpen(false);
                       }}
                     >
-                      Need a Director
+                      Get a Nominee Director
                     </Button>
                     <Button
                       variant="outline"

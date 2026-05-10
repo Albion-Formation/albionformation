@@ -178,7 +178,7 @@ const Footer = () => {
                 size="sm"
                 onClick={() => navigate("/nominee-buyers")}
               >
-                I Need a Nominee Director
+                Get a Nominee Director
               </Button>
               <Button
                 variant="outline"

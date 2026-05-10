@@ -19,7 +19,7 @@ import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
-import { CheckCircle2, CircleOff, FileCheck2, Landmark, ShieldCheck, Users } from "lucide-react";
+import { CheckCircle2, CircleOff, FileCheck2, Landmark, ShieldCheck, Users, Building2, Banknote, Headphones, Lock, Zap } from "lucide-react";
 
 const formSchema = z.object({
   firstName: z.string().trim().min(1, "First name is required").max(50, "First name must be less than 50 characters"),

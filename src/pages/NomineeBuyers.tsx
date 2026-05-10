@@ -475,6 +475,7 @@ const NomineeBuyers = () => {
       </section>
 
       <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div id="application-form" className="mb-8 mt-10 text-center scroll-mt-24">
 
           <h2 className="text-3xl font-bold text-foreground">Start your nominee buyer registration</h2>
           <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">

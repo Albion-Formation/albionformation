@@ -242,103 +242,241 @@ const NomineeBuyers = () => {
         </div>
       </section>
 
-      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-
-
-        <section className="mt-8 grid gap-5 lg:grid-cols-3">
-          <Card className="rounded-2xl border-border/70 p-6 shadow-sm">
-            <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-              <Users className="h-5 w-5 text-primary" />
-            </div>
-            <h2 className="text-lg font-semibold text-foreground">Who this is for</h2>
-            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-              {buyerProfile.map((item) => (
-                <li key={item} className="flex gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </Card>
-
-          <Card className="rounded-2xl border-border/70 p-6 shadow-sm">
-            <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-              <FileCheck2 className="h-5 w-5 text-primary" />
-            </div>
-            <h2 className="text-lg font-semibold text-foreground">What you get after registering</h2>
-            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-              {includedItems.map((item) => (
-                <li key={item} className="flex gap-2">
-                  <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </Card>
-
-          <Card className="rounded-2xl border-border/70 p-6 shadow-sm">
-            <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-muted">
-              <CircleOff className="h-5 w-5 text-foreground/80" />
-            </div>
-            <h2 className="text-lg font-semibold text-foreground">Not suitable for</h2>
-            <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-              {notForItems.map((item) => (
-                <li key={item} className="flex gap-2">
-                  <CircleOff className="mt-0.5 h-4 w-4 flex-shrink-0 text-foreground/70" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </Card>
-        </section>
-
-        <section className="mt-8 grid gap-4 rounded-2xl border border-border/70 bg-secondary/30 p-6 md:grid-cols-3">
-          <div className="flex items-start gap-3">
-            <Landmark className="mt-0.5 h-5 w-5 text-primary" />
-            <div>
-              <p className="font-medium text-foreground">1. Registration review</p>
-              <p className="text-sm text-muted-foreground">We review your submitted details and business context.</p>
-            </div>
+      {/* Why Businesses Trust Us */}
+      <section className="bg-primary text-primary-foreground py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/60">Why Businesses Trust Us</p>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Everything International Founders Actually Need</h2>
           </div>
-          <div className="flex items-start gap-3">
-            <ShieldCheck className="mt-0.5 h-5 w-5 text-primary" />
-            <div>
-              <p className="font-medium text-foreground">2. Compliance checks</p>
-              <p className="text-sm text-muted-foreground">KYC/AML checks are completed before any appointment steps.</p>
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <FileCheck2 className="mt-0.5 h-5 w-5 text-primary" />
-            <div>
-              <p className="font-medium text-foreground">3. Service activation</p>
-              <p className="text-sm text-muted-foreground">You receive the next steps and required service documentation.</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="mt-8 rounded-2xl border border-border/70 bg-card p-6 shadow-sm">
-          <div className="mb-4">
-            <h2 className="text-2xl font-bold text-foreground">Frequently asked questions</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Quick answers before you continue registration.
-            </p>
-          </div>
-          <div className="space-y-3">
-            {faqItems.map((item) => (
-              <details
-                key={item.question}
-                className="group rounded-xl border border-border bg-background p-4 open:bg-secondary/20"
-              >
-                <summary className="cursor-pointer list-none pr-6 text-sm font-semibold text-foreground">
-                  {item.question}
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.answer}</p>
-              </details>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { title: "UK Presence", desc: "Build stronger trust with payment providers, clients, and international partners." },
+              { title: "Fast Appointment", desc: "Get your nominee director appointed in as little as 24 hours." },
+              { title: "Founder Privacy", desc: "Keep your personal details more private while maintaining ownership." },
+              { title: "24/7 Support", desc: "Our team stays available whenever you need guidance or assistance." },
+              { title: "What Clients Say", desc: "Over 2,000 businesses across 40+ countries trust our services." },
+              { title: "Custom Matching", desc: "Need a certain profile? We can match gender and age preferences." },
+            ].map((c) => (
+              <div key={c.title} className="rounded-2xl border border-primary-foreground/15 bg-primary-foreground/[0.04] p-6">
+                <h3 className="text-lg font-semibold">{c.title}</h3>
+                <p className="mt-3 text-sm text-primary-foreground/70">{c.desc}</p>
+              </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
+      {/* What is a UK nominee director */}
+      <section className="bg-background py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">What is a UK Nominee Director?</p>
+              <h2 className="mt-3 text-3xl font-bold text-foreground sm:text-4xl">Why International Founders Use Nominee Directors</h2>
+              <div className="mt-6 space-y-4 text-base text-muted-foreground">
+                <p>
+                  Many international founders want to open and operate a UK company but face challenges with banking, credibility, payment processors, platform verification, or establishing a proper UK business presence. A nominee director helps solve this. We appoint a trusted UK resident director to your company while you continue running and owning the business behind the scenes.
+                </p>
+                <p>
+                  This is commonly used by ecommerce sellers, agency owners, fintech founders, Amazon sellers, consultants, startup founders, and international entrepreneurs expanding into the UK market.
+                </p>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-border bg-secondary/40 p-6 sm:p-8 lg:self-center">
+              <ul className="space-y-4 text-sm text-foreground">
+                {[
+                  "You keep full operational control of your business",
+                  "Your nominee is a real UK resident British citizen",
+                  "Better UK presence for platforms and providers",
+                  "Fast turnaround and responsive support",
+                  "Structured for international business owners",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* More Than Just a Nominee Appointment */}
+      <section className="bg-primary text-primary-foreground py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/60">Why Choose Us</p>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">More Than Just A Nominee Appointment</h2>
+            <p className="mt-5 text-base text-primary-foreground/75">
+              Most providers simply appoint a name to your company and disappear. We built our service around long term support, speed, trust, and helping international founders actually operate smoothly in the UK.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-5 md:grid-cols-2">
+            {[
+              { title: "Built For Global Founders", desc: "Created specifically for non UK residents expanding internationally." },
+              { title: "Responsive Human Support", desc: "Speak directly with a real team that understands international business." },
+              { title: "Fast Turnaround", desc: "No unnecessary delays. Priority processing available for urgent requests." },
+              { title: "Flexible Nominee Matching", desc: "Request nominee preferences based on your business requirements." },
+            ].map((c) => (
+              <div key={c.title} className="rounded-2xl border border-primary-foreground/15 bg-primary-foreground/[0.04] p-6 sm:p-8">
+                <h3 className="text-lg font-semibold">{c.title}</h3>
+                <p className="mt-3 text-sm text-primary-foreground/70">{c.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="bg-primary text-primary-foreground border-t border-primary-foreground/10 py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/60">How It Works</p>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Four Simple Steps</h2>
+          </div>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { n: "01", title: "Consultation", desc: "Tell us about your business, industry, and what you need the nominee structure for." },
+              { n: "02", title: "Compliance Review", desc: "We review your application and prepare your appointment documents." },
+              { n: "03", title: "Director Appointment", desc: "Your nominee director is officially appointed to your UK company." },
+              { n: "04", title: "Documentation Delivery", desc: "Receive all supporting documents and ongoing support from our team." },
+            ].map((s) => (
+              <div key={s.n} className="rounded-2xl border border-primary-foreground/15 bg-primary-foreground/[0.04] p-6">
+                <p className="text-3xl font-bold text-primary-foreground/40">{s.n}</p>
+                <h3 className="mt-4 text-lg font-semibold">{s.title}</h3>
+                <p className="mt-3 text-sm text-primary-foreground/70">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Duties of a UK Nominee Director */}
+      <section className="bg-primary text-primary-foreground py-16 lg:py-24 border-t border-primary-foreground/10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/60">Duties of a UK Nominee Director</p>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Professional Responsibilities Designed To Protect Your Business</h2>
+            <p className="mt-5 text-base text-primary-foreground/75">
+              A UK nominee director has clearly defined responsibilities designed to support the company structure while protecting the interests of the beneficial owner. Every appointment is handled professionally, confidentially, and with clear boundaries.
+            </p>
+          </div>
+          <div className="mt-12 space-y-4">
+            {[
+              {
+                n: "01",
+                title: "Statutory Compliance",
+                desc: "The nominee director helps ensure the company maintains proper statutory obligations and remains in good standing.",
+                tags: [
+                  "Maintaining accurate company records and registers",
+                  "Filing annual returns and confirmation statements",
+                  "Supporting accounts and tax filing coordination",
+                  "Helping maintain proper UK corporate governance standards",
+                ],
+              },
+              {
+                n: "02",
+                title: "Non Interference In Daily Operations",
+                desc: "Your nominee director does not manage your day to day operations, control your staff, handle your internal business activities, or interfere with decision making. You remain fully in control of the company while the nominee appointment supports your UK business presence.",
+              },
+              {
+                n: "03",
+                title: "Fiduciary Duties",
+                desc: "Nominee directors act professionally, ethically, and in good faith while respecting the structure agreed with the beneficial owner.",
+                tags: [
+                  "Acting in the best interests of the company",
+                  "Avoiding conflicts of interest",
+                  "Respecting applicable UK regulations and frameworks",
+                ],
+              },
+              {
+                n: "04",
+                title: "Confidentiality & Privacy Protection",
+                desc: "Confidentiality is a major reason many international founders use nominee services. Your information and business structure are handled discreetly with secure agreements and strict internal privacy standards designed to protect sensitive details.",
+              },
+            ].map((d) => (
+              <div key={d.n} className="rounded-2xl border border-primary-foreground/15 bg-primary-foreground/[0.04] p-6 sm:p-8">
+                <div className="flex items-start gap-5">
+                  <p className="text-2xl font-bold text-primary-foreground/40">{d.n}</p>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold">{d.title}</h3>
+                    <p className="mt-3 text-sm text-primary-foreground/75">{d.desc}</p>
+                    {d.tags && (
+                      <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                        {d.tags.map((t) => (
+                          <div key={t} className="rounded-lg border border-primary-foreground/15 bg-primary-foreground/[0.04] px-4 py-3 text-xs text-primary-foreground/85 sm:text-sm">
+                            {t}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trust & Accreditation */}
+      <section className="bg-background py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Trust & Accreditation</p>
+            <h2 className="mt-3 text-3xl font-bold text-foreground sm:text-4xl">Appoint Your UK Nominee Director With Confidence</h2>
+            <p className="mt-5 text-base text-muted-foreground">
+              Albion Formation ensures your UK nominee director appointment is handled securely, professionally, and with complete attention to privacy. Every step of the process is structured to protect both your business and your personal information while giving you confidence in the service you are receiving.
+            </p>
+          </div>
+          <div className="mt-12 grid gap-5 md:grid-cols-2">
+            {[
+              { icon: ShieldCheck, title: "HMRC Compliant & Legal", desc: "We adhere to Companies House and HMRC standards for nominee director appointments, agreements, and filings to ensure your structure is professionally handled." },
+              { icon: FileCheck2, title: "ICO Registered", desc: "Your company and personal data are protected under UK data protection regulations with strict internal confidentiality standards." },
+              { icon: Landmark, title: "Professional Indemnity Insurance", desc: "Our services are backed by professional accountability and structured operational standards for added peace of mind." },
+              { icon: Lock, title: "Secure & Protected Payments", desc: "All transactions are processed through secure encrypted payment systems designed to protect your information at every stage." },
+            ].map(({ icon: Icon, title, desc }) => (
+              <div key={title} className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10">
+                  <Icon className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="mt-5 text-lg font-semibold text-foreground">{title}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="bg-primary text-primary-foreground py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground/60">Client Testimonials</p>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl">Trusted Worldwide</h2>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {[
+              { quote: "We needed a UK director urgently and everything was completed in less than 24 hours.", name: "Verified Client", role: "International Business Owner" },
+              { quote: "The process was smooth, professional, and the legal protection gave us confidence.", name: "Verified Client", role: "International Business Owner" },
+              { quote: "Very responsive support team. Better experience than every other provider we contacted.", name: "Verified Client", role: "International Business Owner" },
+            ].map((t, i) => (
+              <div key={i} className="rounded-2xl border border-primary-foreground/15 bg-primary-foreground/[0.04] p-6 sm:p-8">
+                <p className="text-sm text-primary-foreground/85">"{t.quote}"</p>
+                <div className="mt-6">
+                  <p className="text-sm font-semibold">{t.name}</p>
+                  <p className="text-xs text-primary-foreground/60">{t.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div id="application-form" className="mb-8 mt-10 text-center scroll-mt-24">
+
           <h2 className="text-3xl font-bold text-foreground">Start your nominee buyer registration</h2>
           <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
             Complete the form below to begin. It takes a few minutes and helps us place you in the right setup flow.

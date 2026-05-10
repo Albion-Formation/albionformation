@@ -158,30 +158,92 @@ const NomineeBuyers = () => {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <section className="relative overflow-hidden rounded-2xl border border-border/70 bg-card px-6 py-10 shadow-sm lg:px-10">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,#dbeafe_0%,transparent_58%)]" />
-          <div className="relative">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background/90 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-              <Users className="h-3.5 w-3.5 text-primary" />
-              For businesses
+      <section className="relative overflow-hidden bg-primary text-primary-foreground">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,hsl(var(--primary-foreground)/0.08)_0%,transparent_55%)]" />
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 px-4 py-1.5 text-xs font-medium text-primary-foreground/90 sm:text-sm">
+                <span className="h-2 w-2 rounded-full bg-success" />
+                Trusted by 2,000+ Businesses Across 40+ Countries
+              </div>
+
+              <h1 className="mt-6 text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
+                Get Your UK Nominee Director Within 24 Hours
+              </h1>
+
+              <p className="mt-6 max-w-xl text-base text-primary-foreground/75 sm:text-lg">
+                Launch and operate your UK company with confidence using a trusted UK resident nominee director service designed for international founders, ecommerce brands, agencies, fintech startups, and overseas business owners who need a stronger UK business presence.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-8 sm:gap-12">
+                <div className="border-l-2 border-primary-foreground/20 pl-4">
+                  <p className="text-xs uppercase tracking-wider text-primary-foreground/60">Flat Annual Fee</p>
+                  <p className="mt-1 text-2xl font-bold sm:text-3xl">£1,000<span className="text-base font-medium text-primary-foreground/70">/year</span></p>
+                </div>
+                <div className="border-l-2 border-primary-foreground/20 pl-4">
+                  <p className="text-xs uppercase tracking-wider text-primary-foreground/60">Setup Time</p>
+                  <p className="mt-1 text-2xl font-bold sm:text-3xl">Within 24 Hours</p>
+                </div>
+              </div>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Button
+                  type="button"
+                  size="lg"
+                  onClick={scrollToForm}
+                  className="h-12 rounded-2xl bg-background px-6 text-sm font-semibold text-foreground hover:bg-background/90"
+                >
+                  Get Your Nominee Director
+                </Button>
+                <Button
+                  type="button"
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="h-12 rounded-2xl border-2 border-primary-foreground/40 bg-transparent px-6 text-sm font-semibold text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+                >
+                  <a
+                    href="https://wa.me/447516413026?text=Hi%20Albion%2C%20I'd%20like%20to%20speak%20with%20an%20expert%20about%20your%20UK%20nominee%20director%20service."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Speak With An Expert
+                  </a>
+                </Button>
+              </div>
             </div>
-            <h1 className="mt-5 max-w-4xl text-3xl font-bold leading-tight text-foreground sm:text-4xl lg:text-5xl">
-              Who is a nominee buyer, and what are you registering for?
-            </h1>
-            <p className="mt-4 max-w-3xl text-base text-muted-foreground sm:text-lg">
-              A nominee buyer is a business owner or founder requesting a nominee director service.
-              This registration starts your compliance review and service setup process.
-            </p>
-            <Button
-              type="button"
-              onClick={scrollToForm}
-              className="mt-6 h-11 rounded-xl px-6 text-sm font-semibold"
-            >
-              Start Application
-            </Button>
+
+            <div className="rounded-3xl border border-primary-foreground/15 bg-primary-foreground/5 p-4 backdrop-blur-sm sm:p-6">
+              <div className="space-y-3">
+                {[
+                  { icon: Building2, title: "UK Resident Director", desc: "Real British resident director appointed to your company" },
+                  { icon: Banknote, title: "Banking & Credibility", desc: "Improve your UK business presence for platforms and providers" },
+                  { icon: Headphones, title: "Dedicated Support", desc: "Speak with our support team anytime you need help" },
+                  { icon: Lock, title: "Privacy Protection", desc: "Protect your identity while maintaining company control" },
+                  { icon: Zap, title: "Fast Setup", desc: "Appointments completed within 24 hours" },
+                ].map(({ icon: Icon, title, desc }) => (
+                  <div
+                    key={title}
+                    className="flex items-start gap-4 rounded-2xl border border-primary-foreground/10 bg-primary-foreground/[0.04] p-4 transition-colors hover:bg-primary-foreground/[0.08] sm:p-5"
+                  >
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-primary-foreground/10">
+                      <Icon className="h-5 w-5 text-primary-foreground" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold text-primary-foreground">{title}</h3>
+                      <p className="mt-1 text-sm text-primary-foreground/70">{desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
+
+      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+
 
         <section className="mt-8 grid gap-5 lg:grid-cols-3">
           <Card className="rounded-2xl border-border/70 p-6 shadow-sm">

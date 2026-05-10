@@ -752,7 +752,85 @@ const NomineeBuyers = () => {
           </Form>
         </div>
       </main>
+
+      {/* Nominee Director FAQs */}
+      <section className="bg-background py-16 lg:py-24">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Frequently Asked Questions</p>
+            <h2 className="mt-3 text-3xl font-bold text-foreground sm:text-4xl">Nominee Director FAQs</h2>
+          </div>
+          <div className="space-y-3">
+            {[
+              { q: "What is a UK nominee director and how do they work?", a: "A nominee director is a UK resident individual appointed to your company while you continue owning and operating the business behind the scenes." },
+              { q: "Can I use a nominee director for my UK limited company?", a: "Yes. Nominee director services are commonly used by international founders operating UK limited companies." },
+              { q: "What are the legal responsibilities of a UK nominee director?", a: "The nominee director helps support statutory obligations while respecting the agreed structure between both parties." },
+              { q: "How much does it cost to hire a UK nominee director in the UK?", a: "Our nominee director service is offered at a flat £1,000 yearly fee." },
+              { q: "How do I choose a reliable UK nominee provider?", a: "Look for providers with real UK resident nominees, strong reviews, legal documentation, responsive support, and transparent communication." },
+              { q: "Can nominees access company bank accounts?", a: "No. Nominees do not automatically gain access to your business bank account." },
+              { q: "Do nominees control the company?", a: "No. You remain the beneficial owner and maintain operational control over the business." },
+              { q: "How is confidentiality maintained?", a: "We use strict confidentiality processes and secure nominee agreements to protect sensitive information." },
+              { q: "Can I end the agreement early?", a: "Yes. Nominee arrangements can be reviewed, replaced, or terminated based on agreed terms." },
+              { q: "Who appears on Companies House records?", a: "The appointed nominee director appears publicly as the company director." },
+              { q: "Can I change nominees later?", a: "Yes. Director appointments can be updated if your business needs change." },
+              { q: "Are nominee services safe for investors?", a: "When structured correctly with proper documentation and trustworthy providers, nominee services are widely used internationally." },
+              { q: "Can a nominee open a UK bank account?", a: "This depends on the bank and the structure of the business relationship." },
+              { q: "Can I combine this with a registered office address?", a: "Yes. Many clients combine nominee services with registered office and mail handling services." },
+              { q: "What happens if I fail to renew my service?", a: "The nominee appointment may be resigned or removed if renewal terms are not maintained." },
+              { q: "Do you provide PSC register support?", a: "Yes. We assist clients in understanding PSC related requirements where applicable." },
+              { q: "What is included in compliance monitoring?", a: "Support may include appointment maintenance, annual reminders, and structure guidance." },
+              { q: "Can I combine nominee director and shareholder services?", a: "Yes. Additional nominee services may be available depending on your structure requirements." },
+            ].map((item) => (
+              <details
+                key={item.q}
+                className="group rounded-2xl border border-border bg-card p-5 open:bg-secondary/30 sm:p-6"
+              >
+                <summary className="cursor-pointer list-none pr-6 text-base font-semibold text-foreground">
+                  {item.q}
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="bg-primary py-16 lg:py-24">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl bg-background px-6 py-12 text-center shadow-xl sm:px-12 sm:py-16">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">Start Your UK Company Setup Today</p>
+            <h2 className="mt-4 text-3xl font-bold text-foreground sm:text-4xl lg:text-5xl">
+              Get Your UK Nominee Director Within 24 Hours
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground">
+              Whether you're launching an ecommerce brand, scaling your agency, opening a fintech company, or expanding internationally, our nominee director service helps you establish a stronger UK business presence quickly and professionally.
+            </p>
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <Button
+                type="button"
+                size="lg"
+                onClick={scrollToForm}
+                className="h-12 rounded-2xl bg-primary px-6 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
+              >
+                Get Your Nominee Director Now
+              </Button>
+              <Button
+                type="button"
+                asChild
+                size="lg"
+                variant="outline"
+                className="h-12 rounded-2xl border-2 border-border bg-background px-6 text-sm font-semibold text-foreground hover:bg-secondary"
+              >
+                <a href="mailto:support@albionformation.com">Contact Support</a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
+
     </div>
   );
 };

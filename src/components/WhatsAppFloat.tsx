@@ -1,11 +1,25 @@
+import { useLocation } from "react-router-dom";
+
 const WHATSAPP_NUMBER = "447516413026";
-const WHATSAPP_MESSAGE = "Hi Albion, I'd like to know more about your nominee director services.";
-const WHATSAPP_URL = `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+
+const getMessage = (pathname: string) => {
+  if (pathname === "/apply") {
+    return "I'm interested in becoming a nominee director";
+  }
+  if (pathname === "/nominee-buyers") {
+    return "I'm interested in getting a nominee director";
+  }
+  return "Hi Albion, I'd like to know more about your nominee director services.";
+};
 
 const WhatsAppFloat = () => {
+  const location = useLocation();
+  const message = getMessage(location.pathname);
+  const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
   return (
     <a
-      href={WHATSAPP_URL}
+      href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"

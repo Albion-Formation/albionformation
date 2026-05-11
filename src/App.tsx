@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import Apply from "./pages/Apply";
 import NomineeBuyers from "./pages/NomineeBuyers";
 import ThankYou from "./pages/ThankYou";
+import ThankYouBuyer from "./pages/ThankYouBuyer";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import CookiePolicy from "./pages/CookiePolicy";
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/apply" element={<Apply />} />
           <Route path="/nominee-buyers" element={<NomineeBuyers />} />
           <Route path="/thank-you" element={<ThankYou />} />
+          <Route path="/thank-you-buyer" element={<ThankYouBuyer />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/cookies" element={<CookiePolicy />} />

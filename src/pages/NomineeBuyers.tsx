@@ -142,7 +142,7 @@ const NomineeBuyers = () => {
         event: "lead_submit_success"
       });
       
-      navigate("/thank-you");
+      navigate("/thank-you-buyer");
     } catch (error) {
       toast({
         title: "Error",

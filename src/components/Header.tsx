@@ -96,26 +96,30 @@ const Header = () => {
                 <div className="mt-6 border-t pt-6">
                   <p className="px-1 text-xs uppercase tracking-wide text-muted-foreground">Choose your path</p>
                   <div className="mt-3 flex flex-col gap-3">
-                    <Button
-                      variant="default"
-                      className="rounded-2xl"
-                      onClick={() => {
-                        navigate("/nominee-buyers");
-                        setOpen(false);
-                      }}
-                    >
-                      Get a Nominee Director
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="rounded-2xl"
-                      onClick={() => {
-                        navigate("/apply");
-                        setOpen(false);
-                      }}
-                    >
-                      Become a Director
-                    </Button>
+                    {location.pathname !== "/nominee-buyers" && (
+                      <Button
+                        variant="default"
+                        className="rounded-2xl"
+                        onClick={() => {
+                          navigate("/nominee-buyers");
+                          setOpen(false);
+                        }}
+                      >
+                        Get a Nominee Director
+                      </Button>
+                    )}
+                    {location.pathname !== "/apply" && (
+                      <Button
+                        variant="outline"
+                        className="rounded-2xl"
+                        onClick={() => {
+                          navigate("/apply");
+                          setOpen(false);
+                        }}
+                      >
+                        Become a Director
+                      </Button>
+                    )}
                   </div>
                 </div>
 

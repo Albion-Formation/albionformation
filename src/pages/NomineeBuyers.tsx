@@ -196,21 +196,6 @@ const NomineeBuyers = () => {
                 >
                   Get Your Nominee Director
                 </Button>
-                <Button
-                  type="button"
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="h-12 rounded-2xl border-2 border-primary-foreground/40 bg-transparent px-6 text-sm font-semibold text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
-                >
-                  <a
-                    href="https://wa.me/447516413026?text=Hi%20Albion%2C%20I'd%20like%20to%20speak%20with%20an%20expert%20about%20your%20UK%20nominee%20director%20service."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Speak With An Expert
-                  </a>
-                </Button>
               </div>
             </div>
 

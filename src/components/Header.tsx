@@ -52,7 +52,7 @@ const Header = () => {
           {/* Desktop CTAs */}
           <div className="hidden lg:flex flex-1 items-center justify-end gap-3">
             {location.pathname === "/apply" || location.pathname === "/nominee-buyers" ? (
-              <Button variant="default" className="rounded-2xl" asChild>
+              <Button variant="default" className="rounded-2xl hidden" asChild>
                 <a href="mailto:support@albionformation.com">Contact Support</a>
               </Button>
             ) : (
@@ -101,7 +101,7 @@ const Header = () => {
                   <p className="px-1 text-xs uppercase tracking-wide text-muted-foreground">Choose your path</p>
                   <div className="mt-3 flex flex-col gap-3">
                     {location.pathname === "/apply" || location.pathname === "/nominee-buyers" ? (
-                      <Button variant="default" className="rounded-2xl" asChild>
+                      <Button variant="default" className="rounded-2xl hidden" asChild>
                         <a href="mailto:support@albionformation.com">Contact Support</a>
                       </Button>
                     ) : (

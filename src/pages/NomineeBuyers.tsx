@@ -178,10 +178,6 @@ const NomineeBuyers = () => {
 
               <div className="mt-8 flex flex-wrap gap-8 sm:gap-12">
                 <div className="border-l-2 border-primary-foreground/20 pl-4">
-                  <p className="text-xs uppercase tracking-wider text-primary-foreground/60">Flat Annual Fee</p>
-                  <p className="mt-1 text-2xl font-bold sm:text-3xl">£1,000<span className="text-base font-medium text-primary-foreground/70">/year</span></p>
-                </div>
-                <div className="border-l-2 border-primary-foreground/20 pl-4">
                   <p className="text-xs uppercase tracking-wider text-primary-foreground/60">Setup Time</p>
                   <p className="mt-1 text-2xl font-bold sm:text-3xl">Within 24 Hours</p>
                 </div>

@@ -10,8 +10,7 @@ export const buyerServiceWorksContent = {
       title: "Choose a Package",
       description:
         "Pick the nominee director package that best fits your business structure and compliance requirements.",
-      image:
-        "https://images.unsplash.com/photo-1454165804603-c33757a4ab44?q=80&w=2070&auto=format&fit=crop",
+      image: "/BuyerCopy/package.png",
     },
     {
       id: 2,

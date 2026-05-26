@@ -2,11 +2,17 @@ import { buyerFeatures } from "@/data/buyerFeatures";
 import type { CarouselFeature } from "@/data/buyerCarouselFeatures";
 
 const storyImages: Record<number, string> = {
-  0: "/BuyerCopy/benefit-1.png",
-  1: "/BuyerCopy/benefit-2.png",
-  2: "/BuyerCopy/benefit-3.png",
-  3: "/BuyerCopy/benefit-4.png",
-  4: "/BuyerCopy/benefit-5.png",
+  0: "/BuyerCopy/benefit-1b.png",
+  1: "/BuyerCopy/benefit-2a.png",
+  2: "/BuyerCopy/benefit-3a.png",
+  3: "/BuyerCopy/benefit-4a.png",
+  4: "/BuyerCopy/benefit-5a.png",
+  5: "/BuyerCopy/benefit-6.png",
+  6: "/BuyerCopy/benefit-7.png",
+  7: "/BuyerCopy/benefit-8.png",
+  8: "/BuyerCopy/benefit-9.png",
+  9: "/BuyerCopy/benefit-10.png",
+  10: "/BuyerCopy/benefit-11.png",
 };
 
 const chipLabels: Record<string, string> = {

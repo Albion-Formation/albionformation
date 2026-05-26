@@ -45,7 +45,7 @@ export const buyerFeatures: BuyerFeature[] = [
     icon: Building2,
     visualType: "director",
     accent: "from-blue-500/20 to-indigo-500/10",
-    image: "/BuyerCopy/benefit-1a.png",
+    image: "/BuyerCopy/benefit-1b.png",
   },
   {
     id: "banking-credibility",
@@ -55,7 +55,7 @@ export const buyerFeatures: BuyerFeature[] = [
     icon: Banknote,
     visualType: "banking",
     accent: "from-emerald-500/20 to-teal-500/10",
-    image: "/BuyerCopy/benefit-2.png",
+    image: "/BuyerCopy/benefit-2a.png",
   },
   {
     id: "dedicated-support",

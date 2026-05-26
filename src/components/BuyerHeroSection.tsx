@@ -11,7 +11,7 @@ const BuyerHeroSection = () => {
   return (
     <section className="relative h-screen min-h-[640px] w-full overflow-hidden">
       <img
-        src="/BuyerCopy/buyer-hero-img2.png"
+        src="/BuyerCopy/buyer-hero-img4.png"
         alt=""
         aria-hidden
         className="absolute inset-0 h-full w-full object-cover object-center"

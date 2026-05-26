@@ -12,6 +12,7 @@ interface CtaCardProps extends React.HTMLAttributes<HTMLDivElement> {
   buttonText: string;
   inputPlaceholder?: string;
   mode?: "email" | "button";
+  buttonHref?: string;
   onButtonClick?: (email?: string) => void;
 }
 
@@ -25,6 +26,7 @@ const CtaCard = React.forwardRef<HTMLDivElement, CtaCardProps>(
       inputPlaceholder = "Email address",
       buttonText,
       mode = "button",
+      buttonHref,
       onButtonClick,
       ...props
     },
@@ -131,6 +133,17 @@ const CtaCard = React.forwardRef<HTMLDivElement, CtaCardProps>(
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </form>
+            ) : buttonHref ? (
+              <Button
+                asChild
+                size="lg"
+                className="h-12 w-full bg-white px-8 text-black hover:bg-neutral-200 sm:w-auto"
+              >
+                <a href={buttonHref} target="_blank" rel="noopener noreferrer">
+                  {buttonText}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
             ) : (
               <Button
                 type="button"

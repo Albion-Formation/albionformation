@@ -39,8 +39,8 @@ const AccordionFeatureSection = ({
   };
 
   return (
-    <section className={cn("py-16 md:py-24 lg:py-32", className)}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className={cn("py-16 md:py-24 lg:py-32", className)}>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {(title || description) && (
           <header className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
             {title && (
@@ -52,8 +52,8 @@ const AccordionFeatureSection = ({
           </header>
         )}
 
-        <div className="flex w-full items-start justify-between gap-8 lg:gap-12">
-          <div className="w-full md:w-1/2">
+        <div className="grid w-full grid-cols-1 items-start gap-8 md:grid-cols-2 lg:gap-12">
+          <div className="min-w-0">
             <Accordion
               type="single"
               collapsible={false}
@@ -64,10 +64,10 @@ const AccordionFeatureSection = ({
               {features.map((feature) => (
                 <AccordionItem key={feature.id} value={`item-${feature.id}`}>
                   <AccordionTrigger className="cursor-pointer py-5 !no-underline transition hover:no-underline">
-                    <span className="flex items-start gap-4 text-left">
+                    <span className="flex min-w-0 items-start gap-4 pr-2 text-left">
                       <span
                         className={cn(
-                          "mt-0.5 text-sm font-semibold tabular-nums tracking-wider",
+                          "mt-0.5 shrink-0 text-sm font-semibold tabular-nums tracking-wider",
                           feature.id === activeTabId ? "text-primary" : "text-muted-foreground",
                         )}
                       >
@@ -98,16 +98,16 @@ const AccordionFeatureSection = ({
             </Accordion>
           </div>
 
-          <div className="relative m-auto hidden w-1/2 overflow-hidden rounded-xl bg-muted md:block">
+          <div className="relative hidden min-w-0 overflow-hidden rounded-xl bg-muted md:block">
             <img
               src={activeImage}
               alt=""
-              className="aspect-[4/3] w-full rounded-xl object-cover pl-4 transition-opacity duration-300"
+              className="aspect-[4/3] w-full rounded-xl object-cover transition-opacity duration-300"
             />
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

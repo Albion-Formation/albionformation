@@ -5,7 +5,7 @@ const BuyerServiceWorksSection = () => {
   const { title, description, features } = buyerServiceWorksContent;
 
   return (
-    <section className="border-t border-border/60 bg-background" aria-label={title}>
+    <section className="overflow-x-hidden border-t border-border/60 bg-background" aria-label={title}>
       <AccordionFeatureSection title={title} description={description} features={features} />
     </section>
   );

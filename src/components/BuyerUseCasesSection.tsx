@@ -5,7 +5,7 @@ const BuyerUseCasesSection = () => {
   const { title, description, eyebrow, items } = buyerUseCasesContent;
 
   return (
-    <section className="border-t border-border/60 bg-background" aria-label={title}>
+    <section className="overflow-x-hidden border-t border-border/60 bg-background" aria-label={title}>
       <Gallery4 title={title} description={description} eyebrow={eyebrow} items={items} />
     </section>
   );

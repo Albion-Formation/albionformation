@@ -48,8 +48,8 @@ const Gallery4 = ({
   }, [carouselApi]);
 
   return (
-    <section className={cn("py-16 md:py-24 lg:py-32", className)}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className={cn("py-16 md:py-24 lg:py-32", className)}>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-end justify-between md:mb-14 lg:mb-16">
           <div className="flex max-w-3xl flex-col gap-4">
             {eyebrow && (
@@ -81,28 +81,31 @@ const Gallery4 = ({
             </Button>
           </div>
         </div>
-      </div>
 
-      <div className="w-full">
-        <Carousel
-          setApi={setCarouselApi}
-          opts={{
-            align: "start",
-            breakpoints: {
-              "(max-width: 768px)": {
-                dragFree: true,
+        <div className="overflow-hidden">
+          <Carousel
+            setApi={setCarouselApi}
+            opts={{
+              align: "start",
+              breakpoints: {
+                "(max-width: 768px)": {
+                  dragFree: true,
+                },
               },
-            },
-          }}
-        >
-          <CarouselContent className="ml-0 2xl:ml-[max(8rem,calc(50vw-700px))] 2xl:mr-[max(0rem,calc(50vw-700px))]">
-            {items.map((item) => (
-              <CarouselItem key={item.id} className="max-w-[320px] pl-[20px] lg:max-w-[360px]">
-                <GalleryCard item={item} />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+            }}
+          >
+            <CarouselContent className="-ml-4">
+              {items.map((item) => (
+                <CarouselItem
+                  key={item.id}
+                  className="basis-[88%] pl-4 sm:basis-[55%] lg:basis-[38%] xl:basis-[32%]"
+                >
+                  <GalleryCard item={item} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
 
         <div className="mt-8 flex justify-center gap-2">
           {items.map((_, index) => (
@@ -119,7 +122,7 @@ const Gallery4 = ({
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
@@ -147,7 +150,7 @@ const GalleryCard = ({ item }: { item: Gallery4Item }) => {
   );
 
   const cardClassName =
-    "group relative h-full min-h-[27rem] max-w-full overflow-hidden rounded-xl md:aspect-[5/4] lg:aspect-[16/9]";
+    "group relative h-full min-h-[24rem] w-full overflow-hidden rounded-xl sm:min-h-[26rem] lg:min-h-[22rem] lg:aspect-[4/3]";
 
   if (item.href) {
     return (

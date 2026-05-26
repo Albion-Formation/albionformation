@@ -29,35 +29,44 @@ const BuyerLandingPage = ({
   formType = "nominee-buyers",
   heroVariant = "primary",
 }: BuyerLandingPageProps) => {
+  const isV2 = heroVariant === "secondary";
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       <BuyerHeroSection variant={heroVariant} />
 
-      {heroVariant === "secondary" && <BuyerNomineeDirectorSection />}
+      {isV2 && (
+        <>
+          {/* Understand: urgency, definition, context */}
+          <BuyerWhyMattersSection />
+          <BuyerNomineeDirectorSection />
+          <BuyerNomineeDirectorWhySection />
 
-      {heroVariant === "secondary" && <BuyerWhyMattersSection />}
+          {/* Who it's for */}
+          <BuyerNomineeDirectorAudienceSection />
+          <BuyerUseCasesSection />
+        </>
+      )}
 
-      {heroVariant === "secondary" && <BuyerNomineeDirectorWhySection />}
-
-      {heroVariant === "secondary" && <BuyerNomineeDirectorDutiesSection />}
-
-      {heroVariant === "secondary" && <BuyerNomineeDirectorAudienceSection />}
-
+      {/* What you get */}
       <StorytellingCarouselSection />
 
-      {heroVariant === "secondary" && <BuyerWhatWeNeedSection />}
-
-      {heroVariant === "secondary" && <BuyerUseCasesSection />}
-
-      {heroVariant === "secondary" && <BuyerWhyChooseAlbionSection />}
-
-      {heroVariant === "secondary" && <BuyerServiceWorksSection />}
+      {isV2 && (
+        <>
+          <BuyerWhyChooseAlbionSection />
+          <BuyerNomineeDirectorDutiesSection />
+          <BuyerServiceWorksSection />
+          <BuyerWhatWeNeedSection />
+        </>
+      )}
 
       <TestimonialsSection />
 
-      {heroVariant !== "secondary" && <FeaturesCarouselSection />}
+      {!isV2 && <FeaturesCarouselSection />}
+
+      {isV2 && <BuyerTrustIndicatorsSection layout="3x2" />}
 
       <BuyerCtaSection />
 
@@ -65,7 +74,7 @@ const BuyerLandingPage = ({
 
       <BuyerFaqSection />
 
-      <BuyerTrustIndicatorsSection layout={heroVariant === "secondary" ? "3x2" : "3x1"} />
+      {!isV2 && <BuyerTrustIndicatorsSection layout="3x1" />}
 
       <Footer />
     </div>

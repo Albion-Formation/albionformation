@@ -1,6 +1,10 @@
 import * as React from "react";
 import { PlusIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  buyerComplianceLogos3x1,
+  buyerComplianceLogos3x2,
+} from "@/data/buyerComplianceLogos";
 
 export type Logo = {
   src: string;
@@ -9,40 +13,55 @@ export type Logo = {
   height?: number;
 };
 
-const complianceLogos: Logo[] = [
-  { src: "/BuyerCopy/logo-1.png", alt: "Companies House" },
-  { src: "/BuyerCopy/logo-2.png", alt: "HM Revenue and Customs" },
-  { src: "/BuyerCopy/logo-3.png", alt: "Information Commissioner's Office" },
-];
+export type LogoCloudLayout = "3x1" | "3x2";
 
-type LogoCloudProps = React.ComponentProps<"div">;
+export type LogoCloudProps = React.ComponentProps<"div"> & {
+  logos?: Logo[];
+  layout?: LogoCloudLayout;
+};
 
-export function LogoCloud({ className, ...props }: LogoCloudProps) {
+const GRID_COLS = 3;
+
+export function LogoCloud({ className, logos, layout = "3x1", ...props }: LogoCloudProps) {
+  const items =
+    logos ?? (layout === "3x2" ? buyerComplianceLogos3x2 : buyerComplianceLogos3x1);
+
+  const isLastRow = (index: number) => index >= items.length - GRID_COLS;
+
   return (
-    <div className={cn("relative grid grid-cols-1 overflow-visible sm:grid-cols-3", className)} {...props}>
-      {complianceLogos.map((logo, index) => (
-        <LogoCard
-          key={logo.alt}
-          logo={logo}
-          className={cn(
-            "relative border-b sm:border-b-0",
-            index < complianceLogos.length - 1 && "sm:border-r",
-          )}
-        >
-          {index === 0 && (
-            <PlusIcon className="absolute -bottom-[12.5px] -right-[12.5px] z-10 size-6" strokeWidth={1} />
-          )}
-          {index === 1 && (
-            <>
-              <PlusIcon
-                className="absolute -bottom-[12.5px] -left-[12.5px] z-10 hidden size-6 sm:block"
-                strokeWidth={1}
-              />
+    <div
+      className={cn("relative grid grid-cols-1 overflow-visible sm:grid-cols-3", className)}
+      {...props}
+    >
+      {items.map((logo, index) => {
+        const columnIndex = index % GRID_COLS;
+        const showBottomBorder = !isLastRow(index);
+
+        return (
+          <LogoCard
+            key={`${logo.src}-${index}`}
+            logo={logo}
+            className={cn(
+              "relative",
+              showBottomBorder && "border-b sm:border-b",
+              columnIndex < GRID_COLS - 1 && "sm:border-r",
+            )}
+          >
+            {showBottomBorder && columnIndex === 0 && (
               <PlusIcon className="absolute -bottom-[12.5px] -right-[12.5px] z-10 size-6" strokeWidth={1} />
-            </>
-          )}
-        </LogoCard>
-      ))}
+            )}
+            {showBottomBorder && columnIndex === 1 && (
+              <>
+                <PlusIcon
+                  className="absolute -bottom-[12.5px] -left-[12.5px] z-10 hidden size-6 sm:block"
+                  strokeWidth={1}
+                />
+                <PlusIcon className="absolute -bottom-[12.5px] -right-[12.5px] z-10 size-6" strokeWidth={1} />
+              </>
+            )}
+          </LogoCard>
+        );
+      })}
     </div>
   );
 }

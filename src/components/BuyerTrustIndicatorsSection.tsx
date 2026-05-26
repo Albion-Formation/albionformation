@@ -1,6 +1,10 @@
-import { LogoCloud } from "@/components/ui/logo-cloud-2";
+import { LogoCloud, type LogoCloudLayout } from "@/components/ui/logo-cloud-2";
 
-const BuyerTrustIndicatorsSection = () => {
+interface BuyerTrustIndicatorsSectionProps {
+  layout?: LogoCloudLayout;
+}
+
+const BuyerTrustIndicatorsSection = ({ layout = "3x1" }: BuyerTrustIndicatorsSectionProps) => {
   return (
     <section
       aria-labelledby="compliance-logo-cloud-heading"
@@ -15,7 +19,7 @@ const BuyerTrustIndicatorsSection = () => {
           <span className="font-semibold text-primary">compliance</span>, experience, and support.
         </h2>
 
-        <LogoCloud />
+        <LogoCloud layout={layout} />
       </div>
     </section>
   );

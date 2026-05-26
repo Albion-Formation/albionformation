@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
 import Apply from "./pages/Apply";
 import NomineeBuyers from "./pages/NomineeBuyers";
+import NomineeBuyers2 from "./pages/NomineeBuyers2";
 import ThankYou from "./pages/ThankYou";
 import ThankYouBuyer from "./pages/ThankYouBuyer";
 import Privacy from "./pages/Privacy";
@@ -51,6 +52,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/apply" element={<Apply />} />
           <Route path="/nominee-buyers" element={<NomineeBuyers />} />
+          <Route path="/nominee-buyers-2" element={<NomineeBuyers2 />} />
           <Route path="/thank-you" element={<ThankYou />} />
           <Route path="/thank-you-buyer" element={<ThankYouBuyer />} />
           <Route path="/privacy" element={<Privacy />} />

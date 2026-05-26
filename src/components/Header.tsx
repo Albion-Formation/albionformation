@@ -1,4 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { isBuyerLandingPath } from "@/lib/buyerLandingRoutes";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { useState } from "react";
@@ -51,7 +52,7 @@ const Header = () => {
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex flex-1 items-center justify-end gap-3">
-            {location.pathname === "/apply" || location.pathname === "/nominee-buyers" ? (
+            {location.pathname === "/apply" || isBuyerLandingPath(location.pathname) ? (
               <Button variant="default" className="rounded-2xl hidden" asChild>
                 <a href="mailto:support@albionformation.com">Contact Support</a>
               </Button>
@@ -100,7 +101,7 @@ const Header = () => {
                 <div className="mt-6 border-t pt-6">
                   <p className="px-1 text-xs uppercase tracking-wide text-muted-foreground">Choose your path</p>
                   <div className="mt-3 flex flex-col gap-3">
-                    {location.pathname === "/apply" || location.pathname === "/nominee-buyers" ? (
+                    {location.pathname === "/apply" || isBuyerLandingPath(location.pathname) ? (
                       <Button variant="default" className="rounded-2xl hidden" asChild>
                         <a href="mailto:support@albionformation.com">Contact Support</a>
                       </Button>

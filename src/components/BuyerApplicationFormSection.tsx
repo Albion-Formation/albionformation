@@ -1,6 +1,11 @@
 import { BuyerMultistepForm } from "@/components/ui/buyer-multistep-form";
+import type { BuyerLandingFormType } from "@/lib/buyerLandingRoutes";
 
-const BuyerApplicationFormSection = () => {
+interface BuyerApplicationFormSectionProps {
+  formType?: BuyerLandingFormType;
+}
+
+const BuyerApplicationFormSection = ({ formType = "nominee-buyers" }: BuyerApplicationFormSectionProps) => {
   return (
     <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
       <div id="application-form" className="mb-8 mt-10 scroll-mt-24 text-center">
@@ -10,7 +15,7 @@ const BuyerApplicationFormSection = () => {
         </p>
       </div>
 
-      <BuyerMultistepForm />
+      <BuyerMultistepForm formType={formType} />
     </main>
   );
 };

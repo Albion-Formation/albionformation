@@ -1,4 +1,5 @@
 import { useLocation } from "react-router-dom";
+import { isBuyerLandingPath } from "@/lib/buyerLandingRoutes";
 
 const WHATSAPP_NUMBER = "447516413026";
 
@@ -6,7 +7,7 @@ const getMessage = (pathname: string) => {
   if (pathname === "/apply") {
     return "I'm interested in becoming a nominee director";
   }
-  if (pathname === "/nominee-buyers") {
+  if (isBuyerLandingPath(pathname)) {
     return "I'm interested in getting a nominee director";
   }
   return "Hi Albion, I'd like to know more about your nominee director services.";

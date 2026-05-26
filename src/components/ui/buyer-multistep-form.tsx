@@ -17,6 +17,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
+import type { BuyerLandingFormType } from "@/lib/buyerLandingRoutes";
 
 const steps = [
   { id: "contact", title: "Contact" },
@@ -76,7 +77,7 @@ const contentVariants = {
 
 const WEBHOOK_URL = "https://n8n.simpleexel.io/webhook/85afd7b0-935b-4245-8d79-4ee4c397f723";
 
-export function BuyerMultistepForm() {
+export function BuyerMultistepForm({ formType = "nominee-buyers" }: { formType?: BuyerLandingFormType }) {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [currentStep, setCurrentStep] = useState(0);
@@ -174,7 +175,7 @@ export function BuyerMultistepForm() {
     try {
       const payload = {
         ...fullResult.data,
-        formType: "nominee-buyers",
+        formType,
       };
       const params = new URLSearchParams();
       Object.entries(payload).forEach(([k, v]) => params.append(k, String(v)));

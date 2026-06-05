@@ -428,34 +428,20 @@ function ApplyFormFields({
           control={form.control}
           name="creditScoreRange"
           render={({ field }) => (
-            <FormItem className="space-y-3">
+            <FormItem>
               <FormLabel className="text-sm font-medium">Do you have a good credit score?</FormLabel>
-              <FormControl>
-                <RadioGroup
-                  onValueChange={field.onChange}
-                  value={field.value}
-                  className="flex flex-col gap-2.5 sm:flex-row sm:flex-wrap"
-                >
-                  <div className={radioWrap}>
-                    <RadioGroupItem value="100-300" id={`${idPrefix}-credit-low`} />
-                    <label htmlFor={`${idPrefix}-credit-low`} className="cursor-pointer font-medium tabular-nums">
-                      100-300
-                    </label>
-                  </div>
-                  <div className={radioWrap}>
-                    <RadioGroupItem value="301-600" id={`${idPrefix}-credit-mid`} />
-                    <label htmlFor={`${idPrefix}-credit-mid`} className="cursor-pointer font-medium tabular-nums">
-                      301-600
-                    </label>
-                  </div>
-                  <div className={radioWrap}>
-                    <RadioGroupItem value="601-999" id={`${idPrefix}-credit-high`} />
-                    <label htmlFor={`${idPrefix}-credit-high`} className="cursor-pointer font-medium tabular-nums">
-                      601-999
-                    </label>
-                  </div>
-                </RadioGroup>
-              </FormControl>
+              <Select onValueChange={field.onChange} value={field.value || undefined}>
+                <FormControl>
+                  <SelectTrigger className="h-11">
+                    <SelectValue placeholder="Select your credit score range" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="601-999">601-999</SelectItem>
+                  <SelectItem value="301-600">301-600</SelectItem>
+                  <SelectItem value="100-300">100-300</SelectItem>
+                </SelectContent>
+              </Select>
               <FormMessage />
             </FormItem>
           )}

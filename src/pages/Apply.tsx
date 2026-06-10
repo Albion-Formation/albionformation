@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -48,6 +49,9 @@ const formSchema = z
     currentlyDirector: z.string().min(1, "This field is required"),
     creditScoreRange: z.string().min(1, "Please select your credit score range"),
     hasClearScoreAccount: z.string().min(1, "This field is required"),
+    hadIvaOrCcj: z.string().min(1, "This field is required"),
+    ivaCcjDetails: z.string().optional(),
+    noActiveIvaOrCcj: z.string().min(1, "This field is required"),
     preferredContactTime: z.string().min(1, "Please select a preferred contact time"),
     applicationConsent: z.boolean().refine((val) => val === true, {
       message: "Consent is required to continue",
@@ -56,7 +60,14 @@ const formSchema = z
   .refine((data) => data.email === data.confirmEmail, {
     message: "Email addresses do not match",
     path: ["confirmEmail"],
-  });
+  })
+  .refine(
+    (data) => data.hadIvaOrCcj !== "yes" || (data.ivaCcjDetails?.trim().length ?? 0) > 0,
+    {
+      message: "Please tell us a little more about where things stand today",
+      path: ["ivaCcjDetails"],
+    },
+  );
 
 type FormData = z.infer<typeof formSchema>;
 const APPLY_WEBHOOK_URL = "https://n8n.simpleexel.io/webhook/8ad3fd29-3f79-4386-bffe-1e53f1f314dc";
@@ -151,10 +162,12 @@ function normalizeQueryParamValue(raw: string | null): string | undefined {
 function ApplyFormFields({
   form,
   beenDirectorBefore,
+  hadIvaOrCcj,
   idPrefix,
 }: {
   form: ReturnType<typeof useForm<FormData>>;
   beenDirectorBefore: string;
+  hadIvaOrCcj: string;
   idPrefix: string;
 }) {
   const radioWrap =
@@ -476,6 +489,89 @@ function ApplyFormFields({
 
         <FormField
           control={form.control}
+          name="hadIvaOrCcj"
+          render={({ field }) => (
+            <FormItem className="space-y-3">
+              <FormLabel className="text-sm font-medium leading-relaxed">
+                Have you ever been subject to an
+                IVA or CCJ — whether current or previously resolved?
+              </FormLabel>
+              <FormControl>
+                <RadioGroup onValueChange={field.onChange} value={field.value} className="flex flex-wrap gap-2.5">
+                  <div className={radioWrap}>
+                    <RadioGroupItem value="yes" id={`${idPrefix}-iva-ccj-yes`} />
+                    <label htmlFor={`${idPrefix}-iva-ccj-yes`} className="cursor-pointer font-medium">
+                      Yes
+                    </label>
+                  </div>
+                  <div className={radioWrap}>
+                    <RadioGroupItem value="no" id={`${idPrefix}-iva-ccj-no`} />
+                    <label htmlFor={`${idPrefix}-iva-ccj-no`} className="cursor-pointer font-medium">
+                      No
+                    </label>
+                  </div>
+                </RadioGroup>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        {hadIvaOrCcj === "yes" && (
+          <FormField
+            control={form.control}
+            name="ivaCcjDetails"
+            render={({ field }) => (
+              <FormItem className="space-y-3 rounded-lg border border-dashed border-border bg-muted/20 p-4 dark:bg-muted/10">
+                <FormLabel className="text-sm font-medium leading-relaxed">
+                  Thank you for letting us know. To help us advise you correctly, could you tell us a little more about
+                  where things stand today?
+                </FormLabel>
+                <FormControl>
+                  <Textarea
+                    className="min-h-[100px] resize-y"
+                    placeholder="Please share any relevant details..."
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        )}
+
+        <FormField
+          control={form.control}
+          name="noActiveIvaOrCcj"
+          render={({ field }) => (
+            <FormItem className="space-y-3">
+              <FormLabel className="text-sm font-medium leading-relaxed">
+                Can you confirm that you do not currently hold an active IVA or any
+                unsatisfied CCJ?
+              </FormLabel>
+              <FormControl>
+                <RadioGroup onValueChange={field.onChange} value={field.value} className="flex flex-wrap gap-2.5">
+                  <div className={radioWrap}>
+                    <RadioGroupItem value="yes" id={`${idPrefix}-no-active-iva-ccj-yes`} />
+                    <label htmlFor={`${idPrefix}-no-active-iva-ccj-yes`} className="cursor-pointer font-medium">
+                      Yes
+                    </label>
+                  </div>
+                  <div className={radioWrap}>
+                    <RadioGroupItem value="no" id={`${idPrefix}-no-active-iva-ccj-no`} />
+                    <label htmlFor={`${idPrefix}-no-active-iva-ccj-no`} className="cursor-pointer font-medium">
+                      No
+                    </label>
+                  </div>
+                </RadioGroup>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
           name="preferredContactTime"
           render={({ field }) => (
             <FormItem className="space-y-3">
@@ -634,12 +730,16 @@ const Apply = () => {
       currentlyDirector: "",
       creditScoreRange: "",
       hasClearScoreAccount: "",
+      hadIvaOrCcj: "",
+      ivaCcjDetails: "",
+      noActiveIvaOrCcj: "",
       preferredContactTime: "",
       applicationConsent: false,
     },
   });
 
   const beenDirectorBefore = form.watch("beenDirectorBefore");
+  const hadIvaOrCcj = form.watch("hadIvaOrCcj");
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
@@ -821,7 +921,12 @@ const Apply = () => {
                 <div className="p-6 sm:p-8">
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit, onInvalidSubmit)} className="flex flex-col gap-2">
-                      <ApplyFormFields form={form} beenDirectorBefore={beenDirectorBefore} idPrefix="apply" />
+                      <ApplyFormFields
+                        form={form}
+                        beenDirectorBefore={beenDirectorBefore}
+                        hadIvaOrCcj={hadIvaOrCcj}
+                        idPrefix="apply"
+                      />
 
                       <p className="pt-2 text-xs leading-relaxed text-muted-foreground">
                         This is a professional service arrangement. Compensation varies per arrangement. Not guaranteed

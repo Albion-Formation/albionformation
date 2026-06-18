@@ -1,9 +1,8 @@
-import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { MARKETING_ROUTES } from "@/lib/marketingRoutes";
 import { Clock, Users } from "lucide-react";
 
 const CTASection = () => {
-  const navigate = useNavigate();
   return (
     <section className="py-16 lg:py-24 bg-primary text-primary-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,21 +26,21 @@ const CTASection = () => {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-4">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               variant="secondary"
               className="rounded-2xl bg-background text-foreground hover:bg-background/90"
-              onClick={() => navigate("/nominee-buyers")}
+              asChild
             >
-              Get a Nominee Director
+              <a href={MARKETING_ROUTES.nomineeBuyers}>Get a Nominee Director</a>
             </Button>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               variant="outline"
               className="rounded-2xl border-2 border-background bg-transparent text-primary-foreground hover:bg-background hover:text-foreground"
-              onClick={() => navigate("/apply")}
+              asChild
             >
-              I Want to Become a Nominee Director
+              <a href={MARKETING_ROUTES.nomineeDirector}>I Want to Become a Nominee Director</a>
             </Button>
           </div>
           

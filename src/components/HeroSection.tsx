@@ -1,9 +1,8 @@
-import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { MARKETING_ROUTES } from "@/lib/marketingRoutes";
 import { ShieldCheck } from "lucide-react";
 
 const HeroSection = () => {
-  const navigate = useNavigate();
 
   return (
     <section className="relative overflow-hidden bg-background py-20 lg:py-28">
@@ -28,10 +27,10 @@ const HeroSection = () => {
             <div className="space-y-2">
               <Button
                 size="lg"
-                onClick={() => navigate("/nominee-buyers")}
+                asChild
                 className="mx-auto h-12 w-full max-w-[320px] rounded-2xl bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/25 hover:bg-primary/90"
               >
-                Get a Nominee Director
+                <a href={MARKETING_ROUTES.nomineeBuyers}>Get a Nominee Director</a>
               </Button>
               <p className="text-sm text-muted-foreground">For business owners and founders</p>
             </div>
@@ -40,10 +39,10 @@ const HeroSection = () => {
               <Button
                 variant="outline"
                 size="lg"
-                onClick={() => navigate("/apply")}
+                asChild
                 className="mx-auto h-12 w-full max-w-[320px] rounded-2xl border-border bg-background/80 px-5 text-sm font-semibold text-foreground shadow-md hover:bg-muted/60"
               >
-                I Want to Become a Nominee Director
+                <a href={MARKETING_ROUTES.nomineeDirector}>I Want to Become a Nominee Director</a>
               </Button>
               <p className="text-sm text-muted-foreground">For professionals applying as directors</p>
             </div>

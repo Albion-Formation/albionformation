@@ -1,5 +1,6 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { isBuyerLandingPath } from "@/lib/buyerLandingRoutes";
+import { MARKETING_ROUTES } from "@/lib/marketingRoutes";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { useState } from "react";
@@ -52,25 +53,20 @@ const Header = () => {
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex flex-1 items-center justify-end gap-3">
+            <Button variant="ghost" className="rounded-2xl" asChild>
+              <a href={MARKETING_ROUTES.buyersPortal}>Buyer's Portal</a>
+            </Button>
             {location.pathname === "/apply" || isBuyerLandingPath(location.pathname) ? (
               <Button variant="default" className="rounded-2xl hidden" asChild>
                 <a href="mailto:support@albionformation.com">Contact Support</a>
               </Button>
             ) : (
               <>
-                <Button
-                  variant="outline"
-                  className="rounded-2xl"
-                  onClick={() => navigate("/apply")}
-                >
-                  Become a Director
+                <Button variant="outline" className="rounded-2xl" asChild>
+                  <a href={MARKETING_ROUTES.nomineeDirector}>Become a Director</a>
                 </Button>
-                <Button
-                  variant="default"
-                  className="rounded-2xl"
-                  onClick={() => navigate("/nominee-buyers")}
-                >
-                  Get a Nominee Director
+                <Button variant="default" className="rounded-2xl" asChild>
+                  <a href={MARKETING_ROUTES.nomineeBuyers}>Get a Nominee Director</a>
                 </Button>
               </>
             )}
@@ -99,6 +95,14 @@ const Header = () => {
                 ))}
 
                 <div className="mt-6 border-t pt-6">
+                  <Button variant="ghost" className="rounded-2xl w-full justify-start px-4" asChild>
+                    <a href={MARKETING_ROUTES.buyersPortal} onClick={() => setOpen(false)}>
+                      Buyer's Portal
+                    </a>
+                  </Button>
+                </div>
+
+                <div className="mt-6 border-t pt-6">
                   <p className="px-1 text-xs uppercase tracking-wide text-muted-foreground">Choose your path</p>
                   <div className="mt-3 flex flex-col gap-3">
                     {location.pathname === "/apply" || isBuyerLandingPath(location.pathname) ? (
@@ -107,25 +111,15 @@ const Header = () => {
                       </Button>
                     ) : (
                       <>
-                        <Button
-                          variant="default"
-                          className="rounded-2xl"
-                          onClick={() => {
-                            navigate("/nominee-buyers");
-                            setOpen(false);
-                          }}
-                        >
-                          Get a Nominee Director
+                        <Button variant="default" className="rounded-2xl" asChild>
+                          <a href={MARKETING_ROUTES.nomineeBuyers} onClick={() => setOpen(false)}>
+                            Get a Nominee Director
+                          </a>
                         </Button>
-                        <Button
-                          variant="outline"
-                          className="rounded-2xl"
-                          onClick={() => {
-                            navigate("/apply");
-                            setOpen(false);
-                          }}
-                        >
-                          Become a Director
+                        <Button variant="outline" className="rounded-2xl" asChild>
+                          <a href={MARKETING_ROUTES.nomineeDirector} onClick={() => setOpen(false)}>
+                            Become a Director
+                          </a>
                         </Button>
                       </>
                     )}

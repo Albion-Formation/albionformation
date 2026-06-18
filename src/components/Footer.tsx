@@ -1,6 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { MARKETING_ROUTES } from "@/lib/marketingRoutes";
 
 const socialLinks = [
   {
@@ -48,8 +48,6 @@ const socialLinks = [
 ];
 
 const Footer = () => {
-  const navigate = useNavigate();
-
   return (
     <footer className="bg-muted border-t border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -173,19 +171,11 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-foreground mb-4">Get Started</h3>
             <div className="flex flex-col gap-3">
-              <Button
-                variant="default"
-                size="sm"
-                onClick={() => navigate("/nominee-buyers")}
-              >
-                Get a Nominee Director
+              <Button variant="default" size="sm" asChild>
+                <a href={MARKETING_ROUTES.nomineeBuyers}>Get a Nominee Director</a>
               </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => navigate("/apply")}
-              >
-                Become a Nominee Director
+              <Button variant="outline" size="sm" asChild>
+                <a href={MARKETING_ROUTES.nomineeDirector}>Become a Nominee Director</a>
               </Button>
             </div>
           </div>
